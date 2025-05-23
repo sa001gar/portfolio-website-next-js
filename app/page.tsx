@@ -16,7 +16,7 @@ export default function Home() {
           <div className="md:col-span-2 space-y-6">
             <div className="space-y-2">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-terminal-bright">
-                <TerminalText text="Sagar Kundu" typingDelay={80} />
+                <TerminalText text="Sagar Kundu" typingDelay={80} showCursor={false} />
               </h1>
               <h2 className="text-xl md:text-2xl text-terminal-green">
                 <TerminalText text="Full Stack Developer & ML Expert" typingDelay={40} showCursor={false} />

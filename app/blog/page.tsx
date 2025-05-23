@@ -92,7 +92,7 @@ export default function BlogPage() {
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="space-y-2">
           <h1 className="text-3xl md:text-4xl font-bold text-terminal-bright">
-            <TerminalText text="Blog" typingDelay={80} />
+            <TerminalText text="Blog" typingDelay={80} showCursor={false}/>
           </h1>
           <p className="text-terminal-green/80 max-w-2xl">
             Technical articles, tutorials, and insights on software development, machine learning, and cybersecurity.

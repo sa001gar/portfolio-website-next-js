@@ -101,7 +101,7 @@ export default function ExperiencePage() {
     <div className="container mx-auto px-4 py-12 min-h-screen">
       <div className="max-w-4xl mx-auto space-y-12">
         <h1 className="text-3xl md:text-4xl font-bold text-terminal-bright mb-6">
-          <TerminalText text="Experience" typingDelay={80} />
+          <TerminalText text="Experience" typingDelay={80} showCursor={false}/>
         </h1>
 
         {/* Work Experience */}

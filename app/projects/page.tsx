@@ -103,7 +103,7 @@ export default function ProjectsPage() {
       <div className="max-w-6xl mx-auto space-y-8">
         <div className="space-y-2">
           <h1 className="text-3xl md:text-4xl font-bold text-terminal-bright">
-            <TerminalText text="Projects" typingDelay={80} />
+            <TerminalText text="Projects" typingDelay={80} showCursor={false}/>
           </h1>
           <p className="text-terminal-green/80 max-w-2xl">
             A collection of my work spanning web development, machine learning, and cybersecurity. Each project
