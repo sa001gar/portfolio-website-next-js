@@ -18,8 +18,9 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Sagar Kundu | Full Stack Developer & ML Expert",
-  description: "Software engineer with expertise in full stack development, machine learning, and cybersecurity.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://your-portfolio-domain.com"),
+  description:
+    "Software engineer with expertise in full stack development, machine learning, and cybersecurity.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://portfolio.sagarkundu.live"),
   keywords: [
     "software engineer",
     "full stack developer",
@@ -30,20 +31,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Sagar Kundu" }],
   creator: "Sagar Kundu",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: process.env.NEXT_PUBLIC_BASE_URL || "https://your-portfolio-domain.com",
-    title: "Sagar Kundu | Full Stack Developer & ML Expert",
-    description: "Software engineer with expertise in full stack development, machine learning, and cybersecurity.",
-    siteName: "Sagar Kundu Portfolio",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Sagar Kundu | Full Stack Developer & ML Expert",
-    description: "Software engineer with expertise in full stack development, machine learning, and cybersecurity.",
-    creator: "@sagarkundu",
-  },
+  // generator: "v0.dev",
   robots: {
     index: true,
     follow: true,
@@ -55,8 +43,39 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-    generator: 'v0.dev'
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: process.env.NEXT_PUBLIC_BASE_URL || "https://portfolio.sagarkundu.live",
+    title: "Sagar Kundu | Full Stack Developer & ML Expert",
+    description:
+      "Software engineer with expertise in full stack development, machine learning, and cybersecurity.",
+    siteName: "Sagar Kundu Portfolio",
+    images: [
+      {
+        url: "/sagarkundu_square.avif",
+        width: 1200,
+        height: 630,
+        alt: "Sagar Kundu Portfolio Preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sagar Kundu | Full Stack Developer & ML Expert",
+    description:
+      "Software engineer with expertise in full stack development, machine learning, and cybersecurity.",
+    creator: "@sagarkundu",
+    images: ["/sagarkundu_square.avif"],
+  },
+  icons: {
+    icon: "/favicon.avif",
+    shortcut: "/favicon.avif",
+    apple: "/favicon.avif",
+  },
+  manifest: "/site.webmanifest",
 }
+
 
 export default function RootLayout({
   children,
