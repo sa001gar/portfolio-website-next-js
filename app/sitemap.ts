@@ -10,16 +10,18 @@ const blogPosts = [
 ]
 
 const projects = [
-  { slug: "code-analyzer", lastModified: "2023-11-01" },
-  { slug: "smart-home", lastModified: "2023-10-15" },
-  { slug: "secure-share", lastModified: "2023-09-20" },
-  { slug: "stock-predictor", lastModified: "2023-08-10" },
-  { slug: "devops-suite", lastModified: "2023-07-25" },
-  { slug: "bug-bounty", lastModified: "2023-06-30" },
+  { slug: "kitto-ai", lastModified: "2024-05-01" },
+  { slug: "electricity-theft-detection", lastModified: "2024-04-18" },
+  { slug: "applied-physio", lastModified: "2024-03-30" },
+  { slug: "college-website-redesign", lastModified: "2024-03-10" },
+  { slug: "stress-detection", lastModified: "2024-02-28" },
+  { slug: "api-testing-extension", lastModified: "2024-01-25" },
+  { slug: "ai-code-editor", lastModified: "2023-12-15" }
 ]
 
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://your-portfolio-domain.com"
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://portfolio.sagarkundu.live"
 
   // Static pages
   const staticPages = [
