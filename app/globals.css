@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --terminal-black: 0 0 0;
+  --terminal-green: 0 255 0;
+  --terminal-bright: 0 255 100;
+  --terminal-dim: 0 180 0;
+}
+
+@layer base {
+  body {
+    @apply bg-terminal-black text-terminal-green antialiased;
+    background-image: radial-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
+      radial-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+  }
+
+  ::selection {
+    @apply bg-terminal-green/30 text-terminal-bright;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-terminal-black;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-terminal-green/20 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-terminal-green/30;
+  }
+
+  /* Prose styles for markdown content */
+  .prose-terminal h1 {
+    @apply text-2xl font-bold text-terminal-bright mb-4 mt-6;
+  }
+
+  .prose-terminal h2 {
+    @apply text-xl font-bold text-terminal-bright mb-3 mt-6;
+  }
+
+  .prose-terminal h3 {
+    @apply text-lg font-bold text-terminal-bright mb-3 mt-5;
+  }
+
+  .prose-terminal p {
+    @apply mb-4 text-terminal-green/90;
+  }
+
+  .prose-terminal ul {
+    @apply list-disc pl-5 mb-4 text-terminal-green/90;
+  }
+
+  .prose-terminal ol {
+    @apply list-decimal pl-5 mb-4 text-terminal-green/90;
+  }
+
+  .prose-terminal li {
+    @apply mb-1;
+  }
+
+  .prose-terminal a {
+    @apply text-terminal-bright underline hover:text-terminal-green transition-colors;
+  }
+
+  .prose-terminal code {
+    @apply font-mono text-terminal-bright bg-terminal-green/10 px-1 py-0.5 rounded;
+  }
+
+  .prose-terminal pre {
+    @apply bg-terminal-black/50 p-4 rounded-md overflow-x-auto border border-terminal-green/20 my-4;
+  }
+
+  .prose-terminal blockquote {
+    @apply border-l-4 border-terminal-green/30 pl-4 italic text-terminal-green/70 my-4;
+  }
+}
+
+@layer components {
+  .shadow-glow {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.1), 0 0 20px rgba(0, 255, 0, 0.05);
+  }
+
+  .bg-terminal-glow {
+    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 0, 0.15), transparent 80%);
+  }
+
+  .text-glitch {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.05em 0 rgba(0, 255, 0, 0.75), 0.025em 0.05em 0
+      rgba(0, 0, 255, 0.75);
+    animation: glitch 500ms infinite;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.05em 0 rgba(0, 255, 0, 0.75), 0.025em 0.05em 0
+      rgba(0, 0, 255, 0.75);
+  }
+  14% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.05em 0 rgba(0, 255, 0, 0.75), 0.025em 0.05em 0
+      rgba(0, 0, 255, 0.75);
+  }
+  15% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.025em 0 rgba(0, 255, 0, 0.75), -0.05em -0.05em 0
+      rgba(0, 0, 255, 0.75);
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.025em 0 rgba(0, 255, 0, 0.75), -0.05em -0.05em 0
+      rgba(0, 0, 255, 0.75);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75), 0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0
+      rgba(0, 0, 255, 0.75);
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75), 0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0
+      rgba(0, 0, 255, 0.75);
+  }
+  100% {
+    text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.025em 0 rgba(0, 255, 0, 0.75), -0.025em -0.05em 0
+      rgba(0, 0, 255, 0.75);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.animate-typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #00ff00;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #00ff00;
+  }
+}
