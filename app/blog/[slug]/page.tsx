@@ -1,3 +1,7 @@
+"use client"
+
+import { use } from 'react'
+import { useEffect } from "react"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { TerminalWindow } from "@/components/terminal-window"
@@ -343,8 +347,14 @@ function getRelatedPosts(postIds: number[]) {
   return posts.filter((post) => postIds.includes(post.id))
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug)
+export default function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+  }, [])
+
+  const { slug } = use(params) 
+  const post = getPostBySlug(slug)
 
   if (!post) {
     notFound()

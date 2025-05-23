@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { TerminalText } from "@/components/terminal-text"
 import { Badge } from "@/components/ui/badge"
@@ -71,6 +71,11 @@ const posts = [
 const categories = ["All", "Web Development", "Machine Learning", "DevOps", "Cybersecurity", "Tutorials"]
 
 export default function BlogPage() {
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+  }, [])
+
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("All")
 

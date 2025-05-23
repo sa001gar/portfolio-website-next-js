@@ -5,6 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Home, Code, Briefcase, FileText, Mail, User, Terminal, Menu, X, Github, Linkedin, Twitter } from "lucide-react"
 import { TerminalText } from "@/components/terminal-text"
+import { FaReddit } from "react-icons/fa"
 
 const navItems = [
   { name: "Home", path: "/", icon: Home },
@@ -88,7 +89,7 @@ export function Sidebar() {
             <p className="px-3 mb-3 text-xs text-terminal-green/60 font-mono">// Connect</p>
             <div className="flex space-x-3 px-3">
               <a
-                href="https://github.com/sagarkundu"
+                href="https://github.com/sa001gar"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-terminal-green/80 hover:text-terminal-bright transition-colors"
@@ -106,13 +107,13 @@ export function Sidebar() {
                 <Linkedin size={18} />
               </a>
               <a
-                href="https://twitter.com/sagarkundu"
+                href="https://www.reddit.com/user/Ok-Platypus2775/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-terminal-green/80 hover:text-terminal-bright transition-colors"
-                aria-label="Twitter"
+                aria-label="Reddit"
               >
-                <Twitter size={18} />
+                <FaReddit size={18} />
               </a>
             </div>
           </div>

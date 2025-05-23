@@ -2,13 +2,19 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { TerminalWindow } from "@/components/terminal-window"
 import { TerminalText } from "@/components/terminal-text"
 import { Button } from "@/components/ui/button"
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from "lucide-react"
+import { Mail, Phone, MapPin, Github, Linkedin,} from "lucide-react"
+import { FaReddit } from "react-icons/fa"
 
 export default function ContactPage() {
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+  }, [])
+
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -32,16 +38,56 @@ export default function ContactPage() {
     setIsSubmitting(true)
     setError(null)
 
-    // Simulate form submission
     try {
-      // In a real app, you would send the form data to your backend
-      await new Promise((resolve) => setTimeout(resolve, 1500))
-      setIsSubmitted(true)
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          name: formState.name,
+          email: formState.email,
+          subject: formState.subject,
+          message: formState.message,
+          from_name: "Portfolio Contact Form"
+        })
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setIsSubmitted(true)
+        // Reset form
+        setFormState({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        })
+      } else {
+        console.log("Error", data)
+        setError(data.message || "Something went wrong. Please try again.")
+      }
     } catch (err) {
+      console.error("Form submission error:", err)
       setError("There was an error submitting the form. Please try again.")
     } finally {
       setIsSubmitting(false)
     }
+  }
+
+  const resetForm = () => {
+    setIsSubmitted(false)
+    setError(null)
+    setFormState({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    })
   }
 
   return (
@@ -65,10 +111,10 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-terminal-bright font-medium">Email</h3>
                   <a
-                    href="mailto:hello@sagarkundu.com"
+                    href="mailto:hello@sagarkundu.live"
                     className="text-terminal-green hover:text-terminal-bright transition-colors"
                   >
-                    hello@sagarkundu.com
+                    hello@sagarkundu.live
                   </a>
                 </div>
               </div>
@@ -78,10 +124,10 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-terminal-bright font-medium">Phone</h3>
                   <a
-                    href="tel:+919876543210"
+                    href="tel:+917699876839"
                     className="text-terminal-green hover:text-terminal-bright transition-colors"
                   >
-                    +91 98765 43210
+                    +91 76998 76839
                   </a>
                 </div>
               </div>
@@ -90,7 +136,7 @@ export default function ContactPage() {
                 <MapPin className="w-5 h-5 text-terminal-bright mr-3 mt-1" />
                 <div>
                   <h3 className="text-terminal-bright font-medium">Location</h3>
-                  <p className="text-terminal-green">Bangalore, India</p>
+                  <p className="text-terminal-green">Durgapur, West Bengal, India</p>
                 </div>
               </div>
             </div>
@@ -99,10 +145,11 @@ export default function ContactPage() {
               <h3 className="text-terminal-bright font-medium mb-3">Connect on Social Media</h3>
               <div className="flex space-x-4">
                 <a
-                  href="https://github.com/sagarkundu"
+                  href="https://github.com/sa001gar"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-terminal-green hover:text-terminal-bright transition-colors"
+                  aria-label="GitHub"
                 >
                   <Github className="w-6 h-6" />
                 </a>
@@ -111,16 +158,18 @@ export default function ContactPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-terminal-green hover:text-terminal-bright transition-colors"
+                  aria-label="LinkedIn"
                 >
                   <Linkedin className="w-6 h-6" />
                 </a>
                 <a
-                  href="https://twitter.com/sagarkundu"
+                  href="https://www.reddit.com/user/Ok-Platypus2775/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-terminal-green hover:text-terminal-bright transition-colors"
+                  aria-label="Reddit"
                 >
-                  <Twitter className="w-6 h-6" />
+                  <FaReddit className="w-6 h-6" />
                 </a>
               </div>
             </div>
@@ -135,10 +184,10 @@ export default function ContactPage() {
                     <Mail className="w-8 h-8 text-terminal-bright" />
                   </div>
                   <h3 className="text-xl font-bold text-terminal-bright mb-2">Message Sent!</h3>
-                  <p className="text-terminal-green/80">
+                  <p className="text-terminal-green/80 mb-4">
                     Thank you for reaching out. I'll get back to you as soon as possible.
                   </p>
-                  <Button onClick={() => setIsSubmitted(false)} variant="outline" className="mt-4">
+                  <Button onClick={resetForm} variant="outline">
                     Send Another Message
                   </Button>
                 </div>
@@ -204,7 +253,11 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  {error && <div className="text-red-500 text-sm">{error}</div>}
+                  {error && (
+                    <div className="text-red-500 text-sm bg-red-500/10 border border-red-500/20 rounded-md p-3">
+                      {error}
+                    </div>
+                  )}
 
                   <Button type="submit" disabled={isSubmitting} className="w-full">
                     {isSubmitting ? "Sending..." : "Send Message"}

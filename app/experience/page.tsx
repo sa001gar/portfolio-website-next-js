@@ -1,3 +1,6 @@
+"use client"
+
+import { useEffect } from "react"
 import { TerminalWindow } from "@/components/terminal-window"
 import { TerminalText } from "@/components/terminal-text"
 import { Badge } from "@/components/ui/badge"
@@ -7,9 +10,9 @@ import { Briefcase, Award, GraduationCap } from "lucide-react"
 const experiences = [
   {
     id: 1,
-    title: "Senior Software Engineer",
-    company: "TechCorp Inc.",
-    period: "2021 - Present",
+    title: "Full Stack Developer",
+    company: "Prime Dev Technologies Pvt. Ltd.",
+    period: "DEC 2024 - Present",
     description:
       "Leading the development of cloud-native applications and ML-powered features. Architecting scalable solutions using microservices and serverless technologies.",
     achievements: [
@@ -17,6 +20,7 @@ const experiences = [
       "Led a team of 5 engineers to deliver a major product release",
       "Implemented CI/CD pipelines that reduced deployment time by 70%",
       "Designed and implemented a machine learning pipeline for predictive analytics",
+      "Developed products tailored to client needs, ensuring high customer satisfaction",
     ],
     technologies: ["Next.js", "TypeScript", "Python", "AWS", "Docker", "Kubernetes", "TensorFlow"],
   },
@@ -32,6 +36,7 @@ const experiences = [
       "Optimized database queries resulting in 60% faster page loads",
       "Implemented OAuth 2.0 authentication system",
       "Contributed to open-source libraries used by the company",
+      "Collaborated with clients to create custom solutions that met their business requirements",
     ],
     technologies: ["React", "Node.js", "Django", "PostgreSQL", "Redis", "Docker"],
   },
@@ -47,6 +52,7 @@ const experiences = [
       "Fixed critical security vulnerabilities",
       "Improved test coverage from 60% to 85%",
       "Created documentation for the API",
+      "Assisted in building client-focused features to enhance user experience",
     ],
     technologies: ["JavaScript", "Python", "Flask", "MongoDB", "Git"],
   },
@@ -88,15 +94,31 @@ const certifications = [
 const education = [
   {
     id: 1,
-    degree: "B.Tech in Computer Science",
-    institution: "Indian Institute of Technology",
-    period: "2014 - 2018",
-    description: "Specialized in Artificial Intelligence and Machine Learning. Graduated with honors.",
-    courses: ["Data Structures & Algorithms", "Machine Learning", "Computer Networks", "Operating Systems"],
+    degree: "B.Sc in Computer Science (4 Years)",
+    institution: "The University of Burdwan",
+    period: "2023 - 2027",
+    description:
+      "Currently in the second year of undergraduate studies with a strong focus on Artificial Intelligence, Machine Learning, Cybersecurity, and Low-Level Systems. Passionate about system programming with deep interest in Go and Rust.",
+    courses: [
+      "Data Structures & Algorithms",
+      "Machine Learning",
+      "Artificial Intelligence",
+      "Cybersecurity",
+      "Operating Systems",
+      "Compiler Design",
+      "Systems Programming",
+      "Web Development",
+      "Low-Level Programming with Go and Rust",
+    ],
   },
 ]
 
 export default function ExperiencePage() {
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+  }, [])
+
   return (
     <div className="container mx-auto px-4 py-12 min-h-screen">
       <div className="max-w-4xl mx-auto space-y-12">
@@ -234,10 +256,11 @@ export default function ExperiencePage() {
             <pre className="text-sm overflow-x-auto">
               {`{
   "languages": [
-    "JavaScript/TypeScript",
     "Python",
+    "JavaScript/TypeScript",
     "Go",
     "C/C++",
+    "Rust",
     "Bash"
   ],
   "frontend": [
@@ -263,25 +286,23 @@ export default function ExperiencePage() {
   ],
   "devops": [
     "Docker",
-    "Kubernetes",
     "AWS",
     "Azure",
     "CI/CD",
-    "Terraform"
   ],
   "ml_ai": [
     "TensorFlow",
     "scikit-learn",
     "PyTorch",
     "NLP",
-    "Computer Vision"
   ],
   "security": [
     "Penetration Testing",
     "OWASP",
-    "Cryptography",
     "Network Security",
     "Bug Bounty"
+    "Android Hacking",
+
   ]
 }`}
             </pre>

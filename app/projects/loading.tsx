@@ -1,3 +1,5 @@
+import { TerminalLoader } from "@/components/terminal-loader"
+
 export default function Loading() {
-  return null
+  return <TerminalLoader isLoading={true} loadingText="Loading projects" />
 }

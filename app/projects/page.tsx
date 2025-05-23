@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { TerminalText } from "@/components/terminal-text"
 import { ProjectCard } from "@/components/project-card"
 import { Badge } from "@/components/ui/badge"
@@ -11,75 +11,88 @@ import { FileCode } from "lucide-react"
 const projects = [
   {
     id: 1,
-    title: "AI Code Analyzer",
-    description:
-      "Machine learning tool that analyzes code repositories to identify security vulnerabilities and quality issues.",
-    image: "/projects/code-analyzer.jpg",
-    tags: ["Python", "TensorFlow", "React", "AWS"],
-    githubUrl: "https://github.com/sagarkundu/code-analyzer",
-    liveUrl: "https://code-analyzer.example.com",
-    slug: "code-analyzer",
-    category: "Machine Learning",
+    title: "Kitto AI – Write Better",
+    description: "Django-powered AI writing assistant that generates content with real-time word count and responsive UI.",
+    image: "https://img.freepik.com/free-photo/3d-render-robot-using-laptop_34663-47.jpg",
+    tags: ["Django", "AWS EC2", "RDS", "S3", "Cloudflare CDN"],
+    githubUrl: "https://github.com/sa001gar/ai_project_aws_deployment",
+    liveUrl: "https://kittoai.sagarkundu.live",
+    slug: "kitto-ai",
+    category: "AI Writing Assistant"
   },
   {
     id: 2,
-    title: "Smart Home Dashboard",
-    description: "IoT dashboard for monitoring and controlling smart home devices with real-time analytics.",
-    image: "/projects/smart-home.jpg",
-    tags: ["Next.js", "TypeScript", "MQTT", "Docker"],
-    githubUrl: "https://github.com/sagarkundu/smart-home",
-    liveUrl: "https://smart-home.example.com",
-    slug: "smart-home",
-    category: "Web Development",
+    title: "Smart Electricity Theft Detection System",
+    description: "Detects unauthorized electricity usage using Arduino sensors with real-time monitoring and Flask backend.",
+    image: "https://github.com/sa001gar/portfolio-vite/blob/main/images/smart-electricity-theft-dashboard.png?raw=true",
+    tags: ["Flask", "Next.js", "Arduino", "Python"],
+    githubUrl: "https://github.com/sa001gar/Smart-Electricity-Theft-Detection",
+    slug: "electricity-theft-detection",
+    category: "IoT & Energy"
   },
   {
     id: 3,
-    title: "Secure File Sharing",
-    description: "End-to-end encrypted file sharing platform with zero-knowledge architecture.",
-    image: "/projects/secure-share.jpg",
-    tags: ["Go", "React", "Cryptography", "AWS"],
-    githubUrl: "https://github.com/sagarkundu/secure-share",
-    liveUrl: "https://secure-share.example.com",
-    slug: "secure-share",
-    category: "Cybersecurity",
+    title: "Applied Physio – Brand Website",
+    description: "SEO-optimized website for a physiotherapy brand using Tailwind CSS and JavaScript.",
+    image: "https://github.com/sa001gar/portfolio-vite/blob/main/images/appliedphysio%20ui.png?raw=true",
+    tags: ["HTML", "Tailwind CSS", "JavaScript"],
+    githubUrl: "https://github.com/sa001gar/applied-physio-website",
+    liveUrl: "https://appliedphysio.in",
+    slug: "applied-physio",
+    category: "Brand Website"
   },
   {
     id: 4,
-    title: "ML Stock Predictor",
-    description: "Stock market prediction tool using machine learning and sentiment analysis.",
-    image: "/projects/stock-predictor.jpg",
-    tags: ["Python", "scikit-learn", "NLP", "FastAPI"],
-    githubUrl: "https://github.com/sagarkundu/stock-predictor",
-    slug: "stock-predictor",
-    category: "Machine Learning",
+    title: "College Website Redesign",
+    description: "Modern redesign of a college website with better accessibility and performance using HTML and Tailwind.",
+    image: "https://img.freepik.com/free-photo/education-concept-with-books-laptop_23-2148535203.jpg",
+    tags: ["HTML", "Tailwind CSS", "JavaScript"],
+    githubUrl: "https://github.com/sa001gar/college-website-redesign",
+    liveUrl: "https://redesign-mccs.sagarkundu.live",
+    slug: "college-website-redesign",
+    category: "Web Redesign"
   },
   {
     id: 5,
-    title: "DevOps Automation Suite",
-    description: "Comprehensive toolset for automating CI/CD pipelines and infrastructure management.",
-    image: "/projects/devops-suite.jpg",
-    tags: ["Terraform", "Ansible", "GitHub Actions", "Kubernetes"],
-    githubUrl: "https://github.com/sagarkundu/devops-suite",
-    slug: "devops-suite",
-    category: "DevOps",
+    title: "Stress Detection Using Smartwatch",
+    description: "Machine learning-based stress analysis using smartwatch sensor data with real-time feedback.",
+    image: "https://raw.githubusercontent.com/sa001gar/portfolio-vite/refs/heads/main/images/stress.webp",
+    tags: ["Python", "Flask", "Machine Learning"],
+    githubUrl: "https://github.com/sa001gar/Stress-Detection-using-Smart-Watch",
+    slug: "stress-detection",
+    category: "Health Tech"
   },
   {
     id: 6,
-    title: "Bug Bounty Platform",
-    description: "Platform for managing and tracking bug bounty programs with automated vulnerability verification.",
-    image: "/projects/bug-bounty.jpg",
-    tags: ["Django", "React", "PostgreSQL", "Docker"],
-    githubUrl: "https://github.com/sagarkundu/bug-bounty",
-    liveUrl: "https://bug-bounty.example.com",
-    slug: "bug-bounty",
-    category: "Cybersecurity",
+    title: "API Testing Chrome Extension",
+    description: "Lightweight Chrome extension for intuitive and fast API testing with live response previews.",
+    image: "https://raw.githubusercontent.com/sa001gar/portfolio-vite/refs/heads/main/images/api-testing.webp",
+    tags: ["JavaScript", "HTML", "CSS"],
+    githubUrl: "https://github.com/sa001gar/api-testing-extension",
+    slug: "api-testing-extension",
+    category: "Developer Tool"
   },
+  {
+    id: 7,
+    title: "AI Code Editor & Code Guru",
+    description: "AI-powered code editor with real-time suggestions, syntax highlighting, and debugging features.",
+    image: "https://raw.githubusercontent.com/sa001gar/portfolio-vite/main/images/ai-code-editor.jpg",
+    tags: ["React", "Flask", "JavaScript"],
+    githubUrl: "https://github.com/sa001gar/gurukul",
+    slug: "ai-code-editor",
+    category: "Developer Tool"
+  }
 ]
 
 // Categories for filtering
 const categories = ["All", "Web Development", "Machine Learning", "DevOps", "Cybersecurity", "Open Source"]
 
 export default function ProjectsPage() {
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+  }, [])
+
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("All")
 

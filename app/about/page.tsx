@@ -1,3 +1,6 @@
+"use client"
+
+import { useEffect } from "react"
 import Image from "next/image"
 import { TerminalWindow } from "@/components/terminal-window"
 import { TerminalCommand } from "@/components/terminal-command"
@@ -5,30 +8,35 @@ import { TerminalText } from "@/components/terminal-text"
 import { Badge } from "@/components/ui/badge"
 
 export default function AboutPage() {
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+  }, [])
+
   return (
     <div className="container mx-auto px-4 py-12 min-h-screen">
       <div className="max-w-4xl mx-auto space-y-8">
         <h1 className="text-3xl md:text-4xl font-bold text-terminal-bright mb-6">
-          <TerminalText text="About Me" typingDelay={80} showCursor={false} />
+          <TerminalText text="About Me" typingDelay={80} showCursor={false}/>
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="md:col-span-1">
             <div className="sticky top-24">
               <div className="relative w-full aspect-square max-w-[300px] mx-auto mb-6 rounded-md overflow-hidden border border-terminal-green/30 shadow-glow">
-                <Image src="/profile-image.jpg" alt="Sagar Kundu" fill className="object-cover" />
+                <Image src="/sagarkundu_square.avif" alt="Sagar Kundu" fill className="object-cover" />
               </div>
 
               <div className="space-y-4">
                 <div>
                   <h3 className="text-terminal-bright font-medium mb-2">Location</h3>
-                  <p className="text-terminal-green/80">Bangalore, India</p>
+                  <p className="text-terminal-green/80">Durgapur, West Bengal, India</p>
                 </div>
 
                 <div>
                   <h3 className="text-terminal-bright font-medium mb-2">Education</h3>
-                  <p className="text-terminal-green/80">B.Tech in Computer Science</p>
-                  <p className="text-terminal-green/60 text-sm">Indian Institute of Technology</p>
+                  <p className="text-terminal-green/80">B.Sc in Computer Science(4 Years)</p>
+                  <p className="text-terminal-green/60 text-sm">The University of Burdwan</p>
                 </div>
 
                 <div>
@@ -174,11 +182,11 @@ export default function AboutPage() {
     "System Architecture"
   ],
   "personal": [
-    "Photography",
-    "Hiking",
-    "Chess",
-    "Reading Science Fiction",
-    "Playing Guitar"
+    "Online Gaming",
+    "Traveling",
+    "Reading Blogs & Articles",
+    "Hacking & Bug Hunting"
+    "Reading Science Fiction & Literature",
   ]
 }`}
                     </pre>
