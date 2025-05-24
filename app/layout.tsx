@@ -84,7 +84,7 @@ export const metadata: Metadata = {
     siteName: "Sagar Kundu Portfolio",
     images: [
       {
-        url: "/og-image.png",
+        url: "/favicon.avif",
         width: 1200,
         height: 630,
         alt: "Sagar Kundu - Full Stack Developer & ML Expert",
@@ -96,15 +96,15 @@ export const metadata: Metadata = {
     title: "Sagar Kundu | Full Stack Developer & ML Expert",
     description: "Software engineer with expertise in full stack development, machine learning, and cybersecurity.",
     creator: "@sagarkundu",
-    images: ["/og-image.png"],
+    images: ["/favicon.avif"],
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icons/icon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/icons/icon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/icons/icon-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icons/icon-512x512.png", sizes: "512x512", type: "image/png" },
+      { url: "/favicon.avif", sizes: "any" },
+      { url: "/favicon.avif", sizes: "16x16", type: "image/png" },
+      { url: "/favicon.avif", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.avif", sizes: "192x192", type: "image/png" },
+      { url: "/favicon.avif", sizes: "512x512", type: "image/png" },
     ],
     apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
     other: [
