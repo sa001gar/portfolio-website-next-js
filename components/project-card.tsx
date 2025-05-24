@@ -80,7 +80,7 @@ export function ProjectCard({
             )}
           </div>
 
-          <Link href={`/projects/${slug}`} className="text-terminal-bright text-sm flex items-center hover:underline">
+          <Link href={`/project/${slug}`} className="text-terminal-bright text-sm flex items-center hover:underline">
             Read More <ArrowRight size={14} className="ml-1" />
           </Link>
         </div>
