@@ -24,38 +24,38 @@ const experiences = [
     ],
     technologies: ["Next.js", "TypeScript", "Python", "AWS", "Docker", "Kubernetes", "TensorFlow"],
   },
-  {
-    id: 2,
-    title: "Full Stack Developer",
-    company: "InnovateSoft",
-    period: "2019 - 2021",
-    description:
-      "Developed and maintained web applications for enterprise clients. Worked on both frontend and backend components with a focus on performance and security.",
-    achievements: [
-      "Built a secure file sharing platform with end-to-end encryption",
-      "Optimized database queries resulting in 60% faster page loads",
-      "Implemented OAuth 2.0 authentication system",
-      "Contributed to open-source libraries used by the company",
-      "Collaborated with clients to create custom solutions that met their business requirements",
-    ],
-    technologies: ["React", "Node.js", "Django", "PostgreSQL", "Redis", "Docker"],
-  },
-  {
-    id: 3,
-    title: "Software Developer Intern",
-    company: "StartupLabs",
-    period: "2018 - 2019",
-    description:
-      "Worked on developing features for a SaaS product. Collaborated with senior developers to implement new functionality and fix bugs.",
-    achievements: [
-      "Developed a dashboard for real-time analytics",
-      "Fixed critical security vulnerabilities",
-      "Improved test coverage from 60% to 85%",
-      "Created documentation for the API",
-      "Assisted in building client-focused features to enhance user experience",
-    ],
-    technologies: ["JavaScript", "Python", "Flask", "MongoDB", "Git"],
-  },
+  // {
+  //   id: 2,
+  //   title: "Full Stack Developer",
+  //   company: "InnovateSoft",
+  //   period: "2019 - 2021",
+  //   description:
+  //     "Developed and maintained web applications for enterprise clients. Worked on both frontend and backend components with a focus on performance and security.",
+  //   achievements: [
+  //     "Built a secure file sharing platform with end-to-end encryption",
+  //     "Optimized database queries resulting in 60% faster page loads",
+  //     "Implemented OAuth 2.0 authentication system",
+  //     "Contributed to open-source libraries used by the company",
+  //     "Collaborated with clients to create custom solutions that met their business requirements",
+  //   ],
+  //   technologies: ["React", "Node.js", "Django", "PostgreSQL", "Redis", "Docker"],
+  // },
+  // {
+  //   id: 3,
+  //   title: "Software Developer Intern",
+  //   company: "StartupLabs",
+  //   period: "2018 - 2019",
+  //   description:
+  //     "Worked on developing features for a SaaS product. Collaborated with senior developers to implement new functionality and fix bugs.",
+  //   achievements: [
+  //     "Developed a dashboard for real-time analytics",
+  //     "Fixed critical security vulnerabilities",
+  //     "Improved test coverage from 60% to 85%",
+  //     "Created documentation for the API",
+  //     "Assisted in building client-focused features to enhance user experience",
+  //   ],
+  //   technologies: ["JavaScript", "Python", "Flask", "MongoDB", "Git"],
+  // },
 ]
 
 // Mock certifications data
