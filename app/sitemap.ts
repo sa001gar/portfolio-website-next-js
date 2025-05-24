@@ -12,11 +12,12 @@ const blogPosts = [
 const projects = [
   { slug: "kitto-ai", lastModified: "2024-05-01" },
   { slug: "electricity-theft-detection", lastModified: "2024-04-18" },
-  { slug: "applied-physio", lastModified: "2024-03-30" },
+  { slug: "applied-physio-website", lastModified: "2024-03-30" },
   { slug: "college-website-redesign", lastModified: "2024-03-10" },
   { slug: "stress-detection", lastModified: "2024-02-28" },
   { slug: "api-testing-extension", lastModified: "2024-01-25" },
   { slug: "ai-code-editor", lastModified: "2023-12-15" }
+  { slug: "retro-diary-app", lastModified: "2024-12-15" }
 ]
 
 
@@ -38,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/projects`,
+      url: `${baseUrl}/project`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.9,
@@ -73,7 +74,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Dynamic project pages
   const projectPages = projects.map((project) => ({
-    url: `${baseUrl}/projects/${project.slug}`,
+    url: `${baseUrl}/project/${project.slug}`,
     lastModified: new Date(project.lastModified),
     changeFrequency: "monthly" as const,
     priority: 0.8,

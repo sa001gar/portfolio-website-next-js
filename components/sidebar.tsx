@@ -10,7 +10,7 @@ import { FaReddit } from "react-icons/fa"
 const navItems = [
   { name: "Home", path: "/", icon: Home },
   { name: "About", path: "/about", icon: User },
-  { name: "Projects", path: "/projects", icon: Code },
+  { name: "Projects", path: "/project", icon: Code },
   { name: "Experience", path: "/experience", icon: Briefcase },
   { name: "Blog", path: "/blog", icon: FileText },
   { name: "Contact", path: "/contact", icon: Mail },

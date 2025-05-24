@@ -81,7 +81,20 @@ const projects = [
     githubUrl: "https://github.com/sa001gar/gurukul",
     slug: "ai-code-editor",
     category: "Developer Tool"
+  },
+  {
+    id: 8,
+    title: "Retro Diary",
+    description: "A nostalgic diary web app with a vintage UI for personal journaling and reflection.",
+    image: "https://raw.githubusercontent.com/sa001gar/portfolio-vite/main/images/retro-diary.jpg",
+    tags: ["HTML", "CSS", "JavaScript", "Django"],
+    githubUrl: "https://github.com/sa001gar/retro-diary",
+    slug: "retro-diary-app",
+    category: "Productivity"
   }
+
+
+
 ]
 
 // Categories for filtering

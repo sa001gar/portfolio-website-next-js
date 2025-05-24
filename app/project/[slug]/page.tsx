@@ -575,7 +575,130 @@ const projects = [
       }
     ],
     "relatedProjects": ["api-testing-extension", "kitto-ai"]
+  },
+  {
+  "id": 8,
+  "title": "Retro-Themed Diary Web App",
+  "slug": "retro-diary-app",
+  "description": "A minimalistic, retro-themed diary application designed for users to effortlessly jot down their thoughts and notes.",
+  "fullDescription": "# Retro-Themed Diary Web App\n\nA **minimalistic, retro-themed diary application** designed for users to effortlessly jot down their thoughts and notes. The app combines nostalgic design elements with modern web technologies to create a unique and engaging writing experience that feels like using a vintage diary.\n\n## 📖 Key Features\n\n• **Retro Aesthetic Design**: Vintage-inspired UI with classic typography and color schemes\n• **Minimalistic Interface**: Clean, distraction-free writing environment\n• **Real-time Auto-save**: Automatic saving of entries as you type\n• **Date-based Organization**: Entries organized by date with calendar navigation\n• **Search Functionality**: Quick search through all diary entries\n• **Mobile-Responsive**: Seamless experience across all devices\n• **User Authentication**: Secure login and registration with Supabase\n• **Rich Text Editor**: Support for basic formatting and styling\n• **Export Options**: Download entries as PDF or text files\n• **Privacy-Focused**: Personal diary entries with secure data storage\n\n## 🛠️ Technical Implementation\n\nThe application is built with a modern tech stack combining **React** for the frontend, **Django** for the backend API, and **Supabase** for database and authentication services. **Tailwind CSS** provides the styling framework for creating the retro aesthetic.\n\n### Architecture Highlights:\n• **React frontend** with component-based architecture\n• **Django REST API** for backend services\n• **Supabase integration** for real-time database and auth\n• **Tailwind CSS** for responsive and retro styling\n• **Real-time synchronization** across devices\n• **Progressive Web App** capabilities for mobile experience\n\n## 🎨 Design Philosophy\n\nThe design draws inspiration from **vintage diaries and journals**, featuring:\n• **Warm color palettes** reminiscent of aged paper\n• **Classic typography** with serif fonts for readability\n• **Subtle textures** and shadows for depth\n• **Intuitive navigation** that feels natural and familiar\n• **Nostalgic elements** like vintage buttons and borders\n\n## 🔐 Security and Privacy\n\n**Privacy-first approach** ensures user data protection:\n• **Supabase authentication** with secure user management\n• **Encrypted data storage** for diary entries\n• **Personal data isolation** - users only see their own entries\n• **HTTPS encryption** for all data transmission\n• **Regular security updates** and monitoring\n\n## 📱 User Experience\n\nThe app provides an **intuitive writing experience**:\n• **Quick entry creation** with one-click access\n• **Calendar view** for easy navigation between dates\n• **Search and filter** capabilities for finding specific entries\n• **Responsive design** that works on desktop, tablet, and mobile\n• **Offline support** for writing when internet is unavailable\n\n## 💡 Challenges and Solutions\n\n**Challenge**: Creating an authentic retro aesthetic while maintaining modern usability\n**Solution**: Carefully balanced vintage design elements with contemporary UX patterns\n\n**Challenge**: Real-time synchronization across devices without conflicts\n**Solution**: Implemented Supabase real-time subscriptions with conflict resolution\n\n**Challenge**: Maintaining performance with large numbers of diary entries\n**Solution**: Implemented pagination and lazy loading for optimal performance",
+  "image": "https://img.freepik.com/free-photo/vintage-diary-with-pen_23-2148535206.jpg",
+  "tags": ["React", "Django", "Supabase", "Tailwind CSS"],
+  "githubUrl": "https://github.com/sa001gar/Retro-Diary-Website",
+  "liveUrl": "https://diary.sagarkundu.live",
+  "category": "Web Application",
+  "terminalCommands": [
+    {
+      "title": "Clone Repository",
+      "commands": ["git clone https://github.com/sa001gar/Retro-Diary-Website.git", "cd Retro-Diary-Website"]
+    },
+    {
+      "title": "Frontend Setup (React)",
+      "commands": [
+        "cd frontend",
+        "npm install",
+        "npm install @supabase/supabase-js react-router-dom",
+        "npm install @tailwindcss/typography lucide-react"
+      ]
+    },
+    {
+      "title": "Backend Setup (Django)",
+      "commands": [
+        "cd backend",
+        "python -m venv venv",
+        "source venv/bin/activate  # Windows: venv\\Scripts\\activate",
+        "pip install django djangorestframework django-cors-headers"
+      ]
+    },
+    {
+      "title": "Supabase Configuration",
+      "commands": [
+        "# Create .env file in frontend directory",
+        "echo 'REACT_APP_SUPABASE_URL=your_supabase_url' > frontend/.env",
+        "echo 'REACT_APP_SUPABASE_ANON_KEY=your_supabase_key' >> frontend/.env",
+        "# Configure Supabase database tables and authentication"
+      ]
+    },
+    {
+      "title": "Database Migration",
+      "commands": [
+        "cd backend",
+        "python manage.py makemigrations",
+        "python manage.py migrate",
+        "python manage.py createsuperuser"
+      ]
+    },
+    {
+      "title": "Development Servers",
+      "commands": [
+        "# Terminal 1 - Django Backend",
+        "cd backend && python manage.py runserver",
+        "# Terminal 2 - React Frontend",
+        "cd frontend && npm start",
+        "# Access app at http://localhost:3000"
+      ]
+    },
+    {
+      "title": "Production Build",
+      "commands": [
+        "# Build React frontend",
+        "cd frontend && npm run build",
+        "# Configure Django for production",
+        "pip install gunicorn whitenoise",
+        "python manage.py collectstatic",
+        "gunicorn --bind 0.0.0.0:8000 diary_project.wsgi:application"
+      ]
+    }
+  ],
+  "features": [
+    "Retro aesthetic design",
+    "Minimalistic writing interface",
+    "Real-time auto-save",
+    "Date-based organization",
+    "Search functionality",
+    "Mobile-responsive design",
+    "User authentication",
+    "Rich text editor",
+    "Export options",
+    "Privacy-focused storage"
+  ],
+  "technologies": {
+    "frontend": ["React", "Tailwind CSS", "JavaScript", "HTML5"],
+    "backend": ["Django", "Django REST Framework", "Python"],
+    "infrastructure": ["Supabase", "PostgreSQL", "Real-time Database", "Authentication"]
+  },
+  "screenshots": [
+    {
+      "url": "/projects/retro-diary-home.jpg",
+      "caption": "Homepage with retro-themed design and entry overview"
+    },
+    {
+      "url": "/projects/retro-diary-editor.jpg",
+      "caption": "Writing interface with vintage styling and rich text editor"
+    },
+    {
+      "url": "/projects/retro-diary-calendar.jpg",
+      "caption": "Calendar view for navigating between diary entries"
+    },
+    {
+      "url": "/projects/retro-diary-mobile.jpg",
+      "caption": "Mobile responsive design showcasing retro aesthetics"
+    }
+  ],
+  "relatedProjects": ["applied-physio", "college-website-redesign"],
+  "projectDetails": {
+    "date": "September 2024",
+    "duration": "2 months",
+    "team": 1,
+    "contributors": [
+      {
+        "name": "Sagar Kundu",
+        "role": "Full Stack Developer",
+        "avatar": "https://github.com/sa001gar/portfolio-vite/blob/main/images/sagarkundu.png?raw=true"
+      }
+    ]
   }
+},
 ]
 
 
