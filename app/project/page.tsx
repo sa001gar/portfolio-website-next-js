@@ -38,7 +38,7 @@ const projects = [
     tags: ["HTML", "Tailwind CSS", "JavaScript"],
     githubUrl: "https://github.com/sa001gar/applied-physio-website",
     liveUrl: "https://appliedphysio.in",
-    slug: "applied-physio",
+    slug: "applied-physio-website",
     category: "Brand Website"
   },
   {
