@@ -16,7 +16,7 @@ const projects = [
   { slug: "college-website-redesign", lastModified: "2024-03-10" },
   { slug: "stress-detection", lastModified: "2024-02-28" },
   { slug: "api-testing-extension", lastModified: "2024-01-25" },
-  { slug: "ai-code-editor", lastModified: "2023-12-15" }
+  { slug: "ai-code-editor", lastModified: "2023-12-15" },
   { slug: "retro-diary-app", lastModified: "2024-12-15" }
 ]
 
