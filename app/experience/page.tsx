@@ -14,80 +14,50 @@ const experiences = [
     company: "Prime Dev Technologies Pvt. Ltd.",
     period: "DEC 2024 - Present",
     description:
-      "Leading the development of cloud-native applications and ML-powered features. Architecting scalable solutions using microservices and serverless technologies.",
+      "Leading the development of web applications and software solutions for clients. Specializing in performance optimization, serverless technologies, and AI-powered features.",
     achievements: [
-      "Reduced infrastructure costs by 40% through cloud optimization",
-      "Led a team of 5 engineers to deliver a major product release",
-      "Implemented CI/CD pipelines that reduced deployment time by 70%",
-      "Designed and implemented a machine learning pipeline for predictive analytics",
-      "Developed products tailored to client needs, ensuring high customer satisfaction",
+      "Improved database query performance by 50% through optimization techniques",
+      "Integrated generative AI features into client applications, enhancing user engagement",
+      "Developed SEO-friendly web applications to boost client visibility",
+      "Built and deployed serverless chatbots for customer support automation",
+      "Created an AI-powered dashboard manager for automated analytics and reporting",
+      "Designed and implemented an AI-admin system for a blogging platform",
+      "Implemented automated blog post generation using AI, integrated with an admin panel, cron jobs, and message queues",
     ],
-    technologies: ["Next.js", "TypeScript", "Python", "AWS", "Docker", "Kubernetes", "TensorFlow"],
+    technologies: ["Next.js", "TypeScript", "Python", "AWS", "React", "Django", "FastAPI", "Jinja 2", "Serverless", "SEO", "Gemini", "TensorFlow", "RabbitMQ", "Cron"],
   },
-  // {
-  //   id: 2,
-  //   title: "Full Stack Developer",
-  //   company: "InnovateSoft",
-  //   period: "2019 - 2021",
-  //   description:
-  //     "Developed and maintained web applications for enterprise clients. Worked on both frontend and backend components with a focus on performance and security.",
-  //   achievements: [
-  //     "Built a secure file sharing platform with end-to-end encryption",
-  //     "Optimized database queries resulting in 60% faster page loads",
-  //     "Implemented OAuth 2.0 authentication system",
-  //     "Contributed to open-source libraries used by the company",
-  //     "Collaborated with clients to create custom solutions that met their business requirements",
-  //   ],
-  //   technologies: ["React", "Node.js", "Django", "PostgreSQL", "Redis", "Docker"],
-  // },
-  // {
-  //   id: 3,
-  //   title: "Software Developer Intern",
-  //   company: "StartupLabs",
-  //   period: "2018 - 2019",
-  //   description:
-  //     "Worked on developing features for a SaaS product. Collaborated with senior developers to implement new functionality and fix bugs.",
-  //   achievements: [
-  //     "Developed a dashboard for real-time analytics",
-  //     "Fixed critical security vulnerabilities",
-  //     "Improved test coverage from 60% to 85%",
-  //     "Created documentation for the API",
-  //     "Assisted in building client-focused features to enhance user experience",
-  //   ],
-  //   technologies: ["JavaScript", "Python", "Flask", "MongoDB", "Git"],
-  // },
 ]
 
 // Mock certifications data
 const certifications = [
   {
     id: 1,
-    name: "AWS Certified Solutions Architect",
-    issuer: "Amazon Web Services",
-    date: "2022",
-    logo: "/certs/aws.png",
+    name: "Android Bug Hunting",
+    issuer: "EC-Council",
+    date: "2024",
+    logo: "/certs/ec-council.png",
   },
   {
     id: 2,
-    name: "TensorFlow Developer Certificate",
-    issuer: "Google",
-    date: "2021",
+    name: "Google Cyber Security Analyst",
+    issuer: "Coursera - Google",
+    date: "2025",
     logo: "/certs/tensorflow.png",
   },
-  {
-    id: 3,
-    name: "Certified Kubernetes Administrator",
-    issuer: "Cloud Native Computing Foundation",
-    date: "2020",
-    logo: "/certs/kubernetes.png",
-  },
-  {
-    id: 4,
-    name: "Certified Ethical Hacker",
-    issuer: "EC-Council",
-    date: "2019",
-    logo: "/certs/ceh.png",
-  },
+  // {
+  //   id: 3,
+  //   name: "Certified Kubernetes Administrator",
+  //   issuer: "Cloud Native Computing Foundation",
+  //   date: "2020",
+  //   logo: "/certs/kubernetes.png",
+  // },
+  // {
+  //   id: 4,
+  //   name: "Certified Ethical Hacker",
+  //   issuer: "EC-Council",
+  //   date: "2019",
+  //   logo: "/certs/ceh.png",
+  // },
 ]
 
 // Mock education data

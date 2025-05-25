@@ -165,41 +165,33 @@ const projects = [
     "title": "Applied Physio – Brand Website",
     "slug": "applied-physio-website",
     "description": "SEO-optimized website for a physiotherapy brand using Tailwind CSS and JavaScript.",
-    "fullDescription": "# Applied Physio – Brand Website\n\nA modern, **SEO-optimized website** designed for Applied Physio, a leading physiotherapy brand. The website focuses on **user experience**, **accessibility**, and **search engine optimization** to help the brand reach more patients and establish a strong online presence.\n\n## 🎯 Key Features\n\n• **SEO Optimization**: Comprehensive SEO implementation for better search engine rankings\n• **Responsive Design**: Mobile-first design approach ensuring perfect display on all devices\n• **Accessibility Compliant**: **WCAG 2.1 AA** compliant for inclusive user experience\n• **Fast Loading**: Optimized performance with lazy loading and image compression\n• **Contact Integration**: Seamless appointment booking and contact forms\n• **Service Showcase**: Detailed presentation of physiotherapy services and treatments\n• **Local SEO**: Optimized for local search and Google My Business integration\n• **Patient Testimonials**: Interactive testimonial section with reviews\n\n## 🛠️ Technical Implementation\n\nBuilt with modern web technologies including **HTML5**, **Tailwind CSS** for styling, and **vanilla JavaScript** for interactivity. The website follows **semantic HTML structure** for better SEO and accessibility. Tailwind CSS provides utility-first styling for rapid development and consistent design.\n\n### Performance Optimizations:\n• **Image compression** and WebP format support\n• **CSS minification** and critical CSS inlining\n• **JavaScript optimization** with efficient loading\n• **Lazy loading** for images and content\n• **CDN integration** for faster asset delivery\n\n## 🎨 Design Philosophy\n\nThe design emphasizes **trust**, **professionalism**, and **accessibility**. Clean layouts, calming color schemes, and intuitive navigation create a welcoming experience for patients. The responsive design ensures consistent experience across desktop, tablet, and mobile devices.\n\n## 📈 SEO Strategy\n\n**Comprehensive SEO implementation** includes:\n• **Keyword optimization** for physiotherapy services\n• **Local SEO** for location-based searches\n• **Schema markup** for better search results\n• **Optimized page loading speeds** (< 3 seconds)\n• **Content strategy** focused on patient education\n• **Meta tags optimization** and social media integration\n\n## 💡 Challenges and Solutions\n\n**Challenge**: Balancing visual appeal with fast loading times\n**Solution**: Progressive image loading and optimized asset delivery\n\n**Challenge**: Ensuring accessibility compliance while maintaining modern design\n**Solution**: Careful color contrast selection and semantic HTML structure",
-    "image": "https://github.com/sa001gar/portfolio-vite/blob/main/images/appliedphysio%20ui.png?raw=true",
-    "tags": ["HTML", "Tailwind CSS", "JavaScript"],
-    "githubUrl": "https://github.com/sa001gar/applied-physio-website",
+    "fullDescription": "<h1>Applied Physio – Brand Website</h1><p>A modern, <strong>SEO-optimized website</strong> designed for Applied Physio, a leading physiotherapy brand. The website focuses on <strong>user experience</strong>, <strong>accessibility</strong>, and <strong>search engine optimization</strong> to help the brand reach more patients and establish a strong online presence.</p><h2>🎯 Key Features</h2><ul><li><strong>SEO Optimization</strong>: Comprehensive SEO implementation for better search engine rankings</li><li><strong>Responsive Design</strong>: Mobile-first design approach ensuring perfect display on all devices</li><li><strong>Accessibility Compliant</strong>: <strong>WCAG 2.1 AA</strong> compliant for inclusive user experience</li><li><strong>Fast Loading</strong>: Optimized performance with lazy loading and image compression</li><li><strong>Contact Integration</strong>: Seamless appointment booking and contact forms</li><li><strong>Service Showcase</strong>: Detailed presentation of physiotherapy services and treatments</li><li><strong>Local SEO</strong>: Optimized for local search and Google My Business integration</li><li><strong>Patient Testimonials</strong>: Interactive testimonial section with reviews</li></ul><h2>🛠️ Technical Implementation</h2><p>Built with modern web technologies including <strong>React.js</strong>, <strong>Tailwind CSS</strong> for styling, and <strong>vanilla JavaScript</strong> for interactivity. The website uses <strong>Supabase</strong> as backend and <strong>Gemini 2.0 Flash</strong> for AI-powered features. Implemented <strong>React Helmet</strong> for SEO and <strong>Server-Side Rendering (SSR)</strong> for improved performance and indexability. Tailwind CSS enables utility-first styling for rapid development and consistent design.</p><h3>Performance Optimizations</h3><ul><li><strong>Image compression</strong> and WebP format support</li><li><strong>CSS minification</strong> and critical CSS inlining</li><li><strong>JavaScript optimization</strong> with efficient loading</li><li><strong>Lazy loading</strong> for images and content</li><li><strong>CDN integration</strong> for faster asset delivery</li></ul><h2>🎨 Design Philosophy</h2><p>The design emphasizes <strong>trust</strong>, <strong>professionalism</strong>, and <strong>accessibility</strong>. Clean layouts, calming color schemes, and intuitive navigation create a welcoming experience for patients. The responsive design ensures consistent experience across desktop, tablet, and mobile devices.</p><h2>🧠 AI Blog Writer</h2><p>Includes an <strong>automated blog writer</strong> powered by Gemini AI that allows admins to generate optimized articles with a single click.</p><h2>📅 Appointment Booking</h2><p>Built-in appointment scheduling and service booking interfaces with a smooth and accessible user flow.</p><h2>📈 SEO Strategy</h2><ul><li><strong>Keyword optimization</strong> for physiotherapy services</li><li><strong>Local SEO</strong> for location-based searches</li><li><strong>Schema markup</strong> for better search results</li><li><strong>Optimized page loading speeds</strong> (&lt; 3 seconds)</li><li><strong>Content strategy</strong> focused on patient education</li><li><strong>Meta tags optimization</strong> and social media integration</li></ul><h2>💡 Challenges and Solutions</h2><p><strong>Challenge</strong>: Balancing visual appeal with fast loading times<br><strong>Solution</strong>: Progressive image loading and optimized asset delivery</p><p><strong>Challenge</strong>: Ensuring accessibility compliance while maintaining modern design<br><strong>Solution</strong>: Careful color contrast selection and semantic HTML structure</p>",
+    "image": "/projects/applied-physio/main.avif",
+    "tags": ["HTML", "Tailwind CSS", "JavaScript","TypeScript","React","Supabase","SEO","Gemini AI"],
+    "githubUrl": "https://github.com/sa001gar/beta-Applied-Physio",
     "liveUrl": "https://appliedphysio.in",
     "category": "Brand Website",
     "terminalCommands": [
       {
         "title": "Clone and Setup",
-        "commands": ["git clone https://github.com/sa001gar/applied-physio-website.git", "cd applied-physio-website"]
+        "commands": ["git clone https://github.com/sa001gar/beta-Applied-Physio.git", "cd beta-Applied-Physio"]
       },
       {
         "title": "Install Dependencies",
-        "commands": ["npm init -y", "npm install -D tailwindcss postcss autoprefixer", "npm install -D live-server"]
+        "commands": ["npm install"]
       },
-      {
-        "title": "Tailwind Setup",
-        "commands": [
-          "npx tailwindcss init -p",
-          "# Configure tailwind.config.js",
-          "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
-        ]
-      },
+  
       {
         "title": "Development Server",
         "commands": [
-          "live-server --port=3000",
-          "# Or simply open index.html in browser",
-          "# Website running at http://localhost:3000"
+          "npm run dev",
+          
         ]
       },
       {
         "title": "Build for Production",
         "commands": [
-          "npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+          "npm run build",
           "# Optimize images and assets",
           "# Deploy to hosting provider"
         ]
@@ -214,21 +206,21 @@ const projects = [
       "Service showcase pages"
     ],
     "technologies": {
-      "frontend": ["HTML5", "Tailwind CSS", "JavaScript", "CSS3"],
-      "backend": ["Static Site"],
-      "infrastructure": ["Web Hosting", "CDN", "SSL Certificate"]
+      "frontend": ["HTML5", "Tailwind CSS", "JavaScript", "CSS3", "React", "TypeScript"],
+      "backend": ["Static Site","Supabase", "Gemini AI","FastAPI","Cloudflare Workers"],
+      "infrastructure": ["Web Hosting - Netlify", "CDN - Cloudflare", "Let's Encrypt - SSL Certificate"]
     },
     "screenshots": [
       {
-        "url": "/projects/applied-physio-home.jpg",
+        "url": "/projects/applied-physio/main.avif",
         "caption": "Homepage with hero section and services overview"
       },
       {
-        "url": "/projects/applied-physio-services.jpg",
+        "url": "/projects/applied-physio/services.avif",
         "caption": "Detailed services and treatment pages"
       },
       {
-        "url": "/projects/applied-physio-contact.jpg",
+        "url": "/projects/applied-physio/contact.avif",
         "caption": "Contact and appointment booking interface"
       }
     ],

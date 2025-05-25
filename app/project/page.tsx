@@ -11,6 +11,17 @@ import { FileCode } from "lucide-react"
 const projects = [
   {
     id: 1,
+    title: "Applied Physio – Brand Website",
+    description: "SEO-optimized website for a physiotherapy brand using Tailwind CSS and JavaScript.",
+    image: "/projects/applied-physio/main.avif",
+    tags: ["HTML", "Tailwind CSS", "JavaScript"],
+    githubUrl: "https://github.com/sa001gar/applied-physio-website",
+    liveUrl: "https://appliedphysio.in",
+    slug: "applied-physio-website",
+    category: "Brand Website"
+  },
+  {
+    id: 2,
     title: "Kitto AI – Write Better",
     description: "Django-powered AI writing assistant that generates content with real-time word count and responsive UI.",
     image: "https://img.freepik.com/free-photo/3d-render-robot-using-laptop_34663-47.jpg",
@@ -21,7 +32,7 @@ const projects = [
     category: "AI Writing Assistant"
   },
   {
-    id: 2,
+    id: 3,
     title: "Smart Electricity Theft Detection System",
     description: "Detects unauthorized electricity usage using Arduino sensors with real-time monitoring and Flask backend.",
     image: "https://github.com/sa001gar/portfolio-vite/blob/main/images/smart-electricity-theft-dashboard.png?raw=true",
@@ -29,17 +40,6 @@ const projects = [
     githubUrl: "https://github.com/sa001gar/Smart-Electricity-Theft-Detection",
     slug: "electricity-theft-detection",
     category: "IoT & Energy"
-  },
-  {
-    id: 3,
-    title: "Applied Physio – Brand Website",
-    description: "SEO-optimized website for a physiotherapy brand using Tailwind CSS and JavaScript.",
-    image: "https://github.com/sa001gar/portfolio-vite/blob/main/images/appliedphysio%20ui.png?raw=true",
-    tags: ["HTML", "Tailwind CSS", "JavaScript"],
-    githubUrl: "https://github.com/sa001gar/applied-physio-website",
-    liveUrl: "https://appliedphysio.in",
-    slug: "applied-physio-website",
-    category: "Brand Website"
   },
   {
     id: 4,
