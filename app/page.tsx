@@ -143,18 +143,18 @@ export default function Home() {
               output={
                 <div className="space-y-2">
                   <p className="text-terminal-bright font-bold text-sm sm:text-base">
-                    AI-Powered Code Analyzer
+                    Electricity Theft Detection System using ML
                   </p>
-                  <p className="text-xs sm:text-sm leading-relaxed">
-                    A machine learning tool that analyzes code repositories to
-                    identify security vulnerabilities, code quality issues, and
-                    performance bottlenecks. Built with Python, TensorFlow, and
-                    React.
-                  </p>
+                    <p className="text-xs sm:text-sm leading-relaxed">
+                    A machine learning tool designed to detect anomalies in the
+                    electricity grid and generate detailed reports. Built using
+                    Next.js, deep learning neural networks, TensorFlow, FastAPI,
+                    and robust data pipelines.
+                    </p>
                   <p className="text-terminal-green/70 text-xs sm:text-sm">
                     →{" "}
                     <Link
-                      href="/projects/code-analyzer"
+                      href="/project/electricity-theft-detection"
                       className="underline hover:text-terminal-bright break-words"
                     >
                       View project details
