@@ -14,7 +14,7 @@ const projects = [
     title: "Applied Physio – Brand Website",
     description: "SEO-optimized website for a physiotherapy brand using Tailwind CSS and JavaScript.",
     image: "/projects/applied-physio/main.avif",
-    tags: ["HTML", "Tailwind CSS", "JavaScript"],
+    tags: ["HTML", "Tailwind CSS", "JavaScript","TypeScript","React","Supabase","SEO","Gemini API"],
     githubUrl: "https://github.com/sa001gar/applied-physio-website",
     liveUrl: "https://appliedphysio.in",
     slug: "applied-physio-website",
