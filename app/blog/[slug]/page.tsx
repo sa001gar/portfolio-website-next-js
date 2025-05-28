@@ -1,18 +1,18 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { use,useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import { TerminalWindow } from "@/components/terminal-window"
 import { Badge } from "@/components/ui/badge"
-import { RichTextRenderer } from "@/components/rich-text-renderer"
+import { ContentfulRichText } from "@/components/contentful-rich-text"
 import { formatDate } from "@/lib/utils"
 import { getBlogPostBySlug, getAllBlogPosts, type BlogPost } from "@/lib/contentful"
 import { ArrowLeft, Calendar, User, Clock, Tag, Share2, BookOpen } from "lucide-react"
 
 interface BlogPostPageProps {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export default function BlogPostPage({ params }: BlogPostPageProps) {
@@ -20,18 +20,18 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([])
   const [loading, setLoading] = useState(true)
   const [notFound404, setNotFound404] = useState(false)
+  const { slug } = use(params) 
 
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-
     loadPost()
-  }, [params.slug])
+  }, [slug])
 
   const loadPost = async () => {
     try {
       setLoading(true)
-      const blogPost = await getBlogPostBySlug(params.slug)
+      const blogPost = await getBlogPostBySlug(slug)
 
       if (!blogPost) {
         setNotFound404(true)
@@ -78,15 +78,14 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     return (
       <div className="container mx-auto px-4 py-12 min-h-screen">
         <div className="max-w-3xl mx-auto">
-          <div className="animate-pulse space-y-8">
-            <div className="h-6 bg-terminal-green/20 rounded w-32"></div>
-            <div className="space-y-4">
-              <div className="h-10 bg-terminal-green/20 rounded w-3/4"></div>
+          <TerminalWindow title="loading.md">
+            <div className="animate-pulse space-y-4">
+              <div className="h-4 bg-terminal-green/20 rounded w-3/4"></div>
               <div className="h-4 bg-terminal-green/10 rounded w-full"></div>
               <div className="h-4 bg-terminal-green/10 rounded w-2/3"></div>
+              <div className="h-32 bg-terminal-green/5 rounded"></div>
             </div>
-            <div className="h-64 bg-terminal-green/10 rounded"></div>
-          </div>
+          </TerminalWindow>
         </div>
       </div>
     )
@@ -98,7 +97,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <div className="container mx-auto px-4 py-12 min-h-screen">
-      <div className="max-w-3xl mx-auto space-y-8">
+      <div className="max-w-5xl mx-auto space-y-8">
         {/* Back Link */}
         <Link
           href="/blog"
@@ -166,7 +165,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
           {/* Article Content */}
           <TerminalWindow title={`${post.slug}.md`} className="mb-8">
-            <RichTextRenderer content={post.content} />
+            <ContentfulRichText content={post.content} />
           </TerminalWindow>
 
           {/* Author Bio */}

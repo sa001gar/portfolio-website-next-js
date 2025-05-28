@@ -24,7 +24,7 @@ export interface ContentfulBlogPost {
     title: string
     slug: string
     excerpt: string
-    content: string
+    content: any // Rich text document
     featuredImage?: {
       fields: {
         file: {
@@ -55,7 +55,7 @@ export interface BlogPost {
   title: string
   slug: string
   excerpt: string
-  content: string
+  content: any // Keep as rich text document
   featuredImage?: {
     url: string
     alt: string
@@ -81,7 +81,7 @@ export function transformBlogPost(contentfulPost: ContentfulBlogPost): BlogPost 
     title: fields.title,
     slug: fields.slug,
     excerpt: fields.excerpt,
-    content: fields.content,
+    content: fields.content, // Keep as rich text document
     featuredImage: fields.featuredImage
       ? {
           url: `https:${fields.featuredImage.fields.file.url}`,

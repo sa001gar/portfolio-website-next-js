@@ -1,0 +1,157 @@
+/* Terminal-themed Prism.js syntax highlighting */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #00ff41; /* Terminal green */
+  background: none;
+  font-family: "JetBrains Mono", "Fira Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-size: 0.9em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.6;
+  tab-size: 2;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  background: transparent;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: transparent;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+}
+
+/* Token colors for terminal theme */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #6a9955; /* Darker green for comments */
+  font-style: italic;
+}
+
+.token.punctuation {
+  color: #00ff41;
+  opacity: 0.8;
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #ff6b6b; /* Red */
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #4ecdc4; /* Cyan */
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #f8f8f2; /* Light gray */
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #45b7d1; /* Blue */
+}
+
+.token.function,
+.token.class-name {
+  color: #f9ca24; /* Yellow */
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #6c5ce7; /* Purple */
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+/* Enhanced styling for better readability */
+.token.keyword {
+  font-weight: 600;
+}
+
+.token.string {
+  font-weight: 500;
+}
+
+.token.function {
+  font-weight: 600;
+}
+
+/* Line highlighting */
+.line-highlight {
+  background: rgba(0, 255, 65, 0.1);
+  box-shadow: inset 5px 0 0 rgba(0, 255, 65, 0.5);
+}
+
+/* Line numbers */
+.line-numbers .line-numbers-rows {
+  border-right: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+.line-numbers-rows > span:before {
+  color: rgba(0, 255, 65, 0.5);
+}
+
+/* Custom scrollbar for code blocks */
+pre[class*="language-"]::-webkit-scrollbar {
+  height: 8px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+pre[class*="language-"]::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 65, 0.3);
+  border-radius: 4px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 65, 0.5);
+}
