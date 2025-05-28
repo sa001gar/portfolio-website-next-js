@@ -1,16 +1,16 @@
 import { createClient } from "contentful"
 
-// if (!process.env.CONTENTFUL_SPACE_ID) {
-//   throw new Error("CONTENTFUL_SPACE_ID is required")
-// }
+if (!process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID) {
+  throw new Error("CONTENTFUL_SPACE_ID is required")
+}
 
-// if (!process.env.CONTENTFUL_ACCESS_TOKEN) {
-//   throw new Error("CONTENTFUL_ACCESS_TOKEN is required")
-// }
+if (!process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN) {
+  throw new Error("CONTENTFUL_ACCESS_TOKEN is required")
+}
 
 export const contentfulClient = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
 })
 
 // Types for Contentful blog post
