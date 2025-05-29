@@ -951,6 +951,6 @@ This project is protected under the [GNU Affero General Public License v3.0](LIC
 
 ## 🙌 Acknowledgments
 
-- Thanks to my mom dor this ui idea.
+- Props to my mom for unintentionally dropping the UI idea that sparked this terminal-style hacker aesthetic. Genius hides in plain sight.
 
 ---
