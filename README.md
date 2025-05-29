@@ -894,9 +894,9 @@ Run the test suite using the following command:
 ---
 ## 📌 Project Roadmap
 
-- [X] **`Task 1`**: <strike>Implement feature one.</strike>
-- [ ] **`Task 2`**: Implement feature two.
-- [ ] **`Task 3`**: Implement feature three.
+- [X] **`Task 1`**: <strike>Contact form submission through Web3 forms.</strike>
+- [X] **`Task 2`**: Blog Posting using Contentful Headless CMS.
+- [ ] **`Task 3`**: SEO optimization and Improve Page Speed.
 
 ---
 
@@ -945,12 +945,12 @@ Run the test suite using the following command:
 
 ## 🎗 License
 
-This project is protected under the [SELECT-A-LICENSE](https://choosealicense.com/licenses) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/) file.
+This project is protected under the [GNU Affero General Public License v3.0](LICENSE) License. For more details, refer to the [LICENSE](LICENSE) file.
 
 ---
 
 ## 🙌 Acknowledgments
 
-- List any resources, contributors, inspiration, etc. here.
+- Props to my mom for unintentionally dropping the UI idea that sparked this terminal-style hacker aesthetic. Genius hides in plain sight.
 
 ---
