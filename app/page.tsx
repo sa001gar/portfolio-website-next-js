@@ -53,7 +53,7 @@ export default function Home() {
 
             <div className="flex flex-wrap gap-4">
               <Button asChild>
-                <Link href="/projects">
+                <Link href="/project">
                   View Projects <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
