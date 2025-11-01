@@ -12,51 +12,51 @@
   "categories": ["portfolio", "developer", "technology"],
   "icons": [
     {
-      "src": "/icons/icon-72x72.png",
+      "src": "/sagarkundu_square.avif",
       "sizes": "72x72",
-      "type": "image/png",
+      "type": "image/avif",
       "purpose": "maskable any"
     },
     {
-      "src": "/icons/icon-96x96.png",
+      "src": "/sagarkundu_square.avif",
       "sizes": "96x96",
-      "type": "image/png",
+      "type": "image/avif",
       "purpose": "maskable any"
     },
     {
-      "src": "/icons/icon-128x128.png",
+      "src": "/sagarkundu_square.avif",
       "sizes": "128x128",
-      "type": "image/png",
+      "type": "image/avif",
       "purpose": "maskable any"
     },
     {
-      "src": "/icons/icon-144x144.png",
+      "src": "/sagarkundu_square.avif",
       "sizes": "144x144",
-      "type": "image/png",
+      "type": "image/avif",
       "purpose": "maskable any"
     },
     {
-      "src": "/icons/icon-152x152.png",
+      "src": "/sagarkundu_square.avif",
       "sizes": "152x152",
-      "type": "image/png",
+      "type": "image/avif",
       "purpose": "maskable any"
     },
     {
-      "src": "/icons/icon-192x192.png",
+      "src": "/sagarkundu.avif",
       "sizes": "192x192",
-      "type": "image/png",
+      "type": "image/avif",
       "purpose": "maskable any"
     },
     {
-      "src": "/icons/icon-384x384.png",
+      "src": "/sagarkundu.avif",
       "sizes": "384x384",
-      "type": "image/png",
+      "type": "image/avif",
       "purpose": "maskable any"
     },
     {
-      "src": "/icons/icon-512x512.png",
+      "src": "/sagarkundu.avif",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/avif",
       "purpose": "maskable any"
     }
   ],
@@ -66,9 +66,9 @@
       "short_name": "Projects",
       "description": "View my portfolio projects",
       "url": "/project",
-      "icons": [
+        "icons": [
         {
-          "src": "/icons/projects-icon.png",
+          "src": "/sagarkundu_square.avif",
           "sizes": "96x96"
         }
       ]
@@ -78,9 +78,9 @@
       "short_name": "Blog",
       "description": "Read my technical articles",
       "url": "/blog",
-      "icons": [
+        "icons": [
         {
-          "src": "/icons/blog-icon.png",
+          "src": "/sagarkundu_square.avif",
           "sizes": "96x96"
         }
       ]
@@ -90,9 +90,9 @@
       "short_name": "Contact",
       "description": "Get in touch with me",
       "url": "/contact",
-      "icons": [
+        "icons": [
         {
-          "src": "/icons/contact-icon.png",
+          "src": "/sagarkundu_square.avif",
           "sizes": "96x96"
         }
       ]

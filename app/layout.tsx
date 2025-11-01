@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import { Sidebar } from "@/components/sidebar"
@@ -20,6 +20,14 @@ const jetbrainsMono = JetBrains_Mono({
 
 const SITE_URL = new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://your-portfolio-domain.com")
 
+// ✅ NEW: Define viewport separately
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
+  colorScheme: "dark",
+}
 export const metadata: Metadata = {
   title: {
     default: "Sagar Kundu | Full Stack Developer & ML Expert",
@@ -41,11 +49,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Sagar Kundu", url: SITE_URL.href }],
   creator: "Sagar Kundu",
   manifest: "/site.webmanifest",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
-  ],
-  colorScheme: "dark",
+ 
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",

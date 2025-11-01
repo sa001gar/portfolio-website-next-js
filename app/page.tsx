@@ -170,7 +170,7 @@ export default function Home() {
 
         {/* Quick Links Section */}
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <Link href="/projects" className="group">
+          <Link href="/project" className="group">
             <div className="border border-terminal-green/20 rounded-md p-4 hover:border-terminal-green/50 hover:bg-terminal-green/5 transition-all duration-300">
               <div className="flex items-center mb-3">
                 <Code className="h-5 w-5 text-terminal-bright mr-2" />
