@@ -18,85 +18,63 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 })
 
+const SITE_URL = new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://your-portfolio-domain.com")
+
 export const metadata: Metadata = {
-  title: "Sagar Kundu | Full Stack Developer & ML Expert",
-  description: "Software engineer with expertise in full stack development, machine learning, and cybersecurity.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://your-portfolio-domain.com"),
+  title: {
+    default: "Sagar Kundu | Full Stack Developer & ML Expert",
+    template: "%s — Sagar Kundu",
+  },
+  description:
+    "Full‑stack engineer focused on web applications, machine learning, and secure cloud-native systems.",
+  metadataBase: SITE_URL,
   keywords: [
+    "Sagar Kundu",
     "software engineer",
     "full stack developer",
     "machine learning",
-    "cybersecurity",
     "web development",
+    "cloud",
+    "cybersecurity",
     "portfolio",
   ],
-  authors: [{ name: "Sagar Kundu" }],
+  authors: [{ name: "Sagar Kundu", url: SITE_URL.href }],
   creator: "Sagar Kundu",
   manifest: "/site.webmanifest",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
+  colorScheme: "dark",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
     title: "Sagar Kundu Portfolio",
-    startupImage: [
-      {
-        url: "/icons/apple-splash-2048-2732.png",
-        media:
-          "(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)",
-      },
-      {
-        url: "/icons/apple-splash-1668-2224.png",
-        media:
-          "(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)",
-      },
-      {
-        url: "/icons/apple-splash-1536-2048.png",
-        media:
-          "(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)",
-      },
-      {
-        url: "/icons/apple-splash-1125-2436.png",
-        media:
-          "(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)",
-      },
-      {
-        url: "/icons/apple-splash-1242-2208.png",
-        media:
-          "(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)",
-      },
-      {
-        url: "/icons/apple-splash-750-1334.png",
-        media:
-          "(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)",
-      },
-      {
-        url: "/icons/apple-splash-640-1136.png",
-        media:
-          "(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)",
-      },
-    ],
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: process.env.NEXT_PUBLIC_BASE_URL || "https://your-portfolio-domain.com",
+    url: SITE_URL.href,
     title: "Sagar Kundu | Full Stack Developer & ML Expert",
-    description: "Software engineer with expertise in full stack development, machine learning, and cybersecurity.",
+    description:
+      "Full‑stack engineer focused on web applications, machine learning, and secure cloud-native systems.",
     siteName: "Sagar Kundu Portfolio",
     images: [
       {
-        url: "/favicon.avif",
+        url: new URL("/og-image.png", SITE_URL).href,
         width: 1200,
         height: 630,
-        alt: "Sagar Kundu - Full Stack Developer & ML Expert",
+        alt: "Sagar Kundu — Software Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sagar Kundu | Full Stack Developer & ML Expert",
-    description: "Software engineer with expertise in full stack development, machine learning, and cybersecurity.",
+    title: "Sagar Kundu | Software Engineer",
+    description:
+      "Full‑stack engineer focused on backend systems, ML, and cloud-native architecture.",
     creator: "@sagarkundu",
-    images: ["/favicon.avif"],
+    images: [new URL("/og-image.png", SITE_URL).href],
   },
   icons: {
     icon: [
@@ -106,14 +84,13 @@ export const metadata: Metadata = {
       { url: "/favicon.avif", sizes: "192x192", type: "image/png" },
       { url: "/favicon.avif", sizes: "512x512", type: "image/png" },
     ],
-    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
-    other: [
-      {
-        rel: "mask-icon",
-        url: "/icons/safari-pinned-tab.svg",
-        color: "#00ff41",
-      },
-    ],
+    shortcut: ["/favicon.avif"],
+  },
+  alternates: {
+    canonical: SITE_URL.href,
+    languages: {
+      "en-US": SITE_URL.href,
+    },
   },
   robots: {
     index: true,
@@ -126,11 +103,8 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-    yahoo: "your-yahoo-verification-code",
-  },
+  // uncomment and fill verification tokens if needed:
+  // verification: { google: "...", yandex: "...", yahoo: "..." },
 }
 
 export default function RootLayout({
