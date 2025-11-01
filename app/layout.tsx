@@ -18,9 +18,9 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 })
 
-const SITE_URL = new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://your-portfolio-domain.com")
+const SITE_URL = new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://localhost:3000")
 
-// ✅ NEW: Define viewport separately
+// Viewport and Metadata settings
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
@@ -124,6 +124,9 @@ export default function RootLayout({
         <meta name="msapplication-config" content="/browserconfig.xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preload hero and OG images to improve largest contentful paint and social preview load */}
+        <link rel="preload" as="image" href="/sagarkundu_square.avif" type="image/avif" />
+        <link rel="preload" as="image" href="/og-image.png" type="image/png" />
       </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans bg-terminal-black text-terminal-green`}>
         <TerminalProvider>
@@ -138,9 +141,12 @@ export default function RootLayout({
               </main>
             </div>
           </Suspense>
-          <Analytics />
-          <PWAInstallPrompt />
-          <ServiceWorkerRegistration />
+      <Analytics />
+      <PWAInstallPrompt />
+      {/* Component will now attempt to unregister any existing service workers
+        rather than register a new one. This ensures previously-installed
+        SWs don't interfere with site performance. */}
+      <ServiceWorkerRegistration />
         </TerminalProvider>
       </body>
     </html>

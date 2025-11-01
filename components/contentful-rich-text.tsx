@@ -178,7 +178,7 @@ export function ContentfulRichText({ content, className = "" }: ContentfulRichTe
       ),
 
       // Handle code blocks specifically
-      [BLOCKS.CODE]: (node: any) => {
+      [(BLOCKS as any).CODE]: (node: any) => {
         const codeContent = node.content?.[0]?.value || ""
         const language = detectLanguage(codeContent)
 
@@ -283,7 +283,7 @@ export function ContentfulRichText({ content, className = "" }: ContentfulRichTe
           if (contentType === "blogPost") {
             href = `/blog/${node.data.target.fields.slug}`
           } else if (contentType === "project") {
-            href = `/projects/${node.data.target.fields.slug}`
+            href = `/project/${node.data.target.fields.slug}`
           }
 
           return (

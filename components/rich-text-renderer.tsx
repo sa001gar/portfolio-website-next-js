@@ -317,13 +317,13 @@ export function RichTextRenderer({ content, className = "" }: RichTextRendererPr
         </th>
       ),
       // Handle code blocks properly
-      [BLOCKS.CODE]: (node: any) => {
-        // Extract the actual code content
-        const codeContent = node.content?.[0]?.value || node.value || ""
-        const language = node.data?.language || "text"
-
-        return <CodeBlock language={language}>{codeContent}</CodeBlock>
-      },
+            ['code']: (node: any) => {
+              // Extract the actual code content
+              const codeContent = node.content?.[0]?.value || node.value || ""
+              const language = node.data?.language || "text"
+      
+              return <CodeBlock language={language}>{codeContent}</CodeBlock>
+            },
       [INLINES.HYPERLINK]: (node: any, children: React.ReactNode) => (
         <Link
           href={node.data.uri}
@@ -343,7 +343,7 @@ export function RichTextRenderer({ content, className = "" }: RichTextRendererPr
           if (contentType === "blogPost") {
             href = `/blog/${node.data.target.fields.slug}`
           } else if (contentType === "project") {
-            href = `/projects/${node.data.target.fields.slug}`
+            href = `/project/${node.data.target.fields.slug}`
           }
 
           return (
