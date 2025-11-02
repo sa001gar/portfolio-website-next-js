@@ -8,8 +8,8 @@ import { Analytics } from "@/components/analytics"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { PageLoader } from "@/components/page-loader"
 import { Suspense } from "react"
-import { PWAInstallPrompt } from "@/components/pwa-install-prompt"
-import { ServiceWorkerRegistration } from "@/components/service-worker-registration"
+// import { PWAInstallPrompt } from "@/components/pwa-install-prompt"
+// import { ServiceWorkerRegistration } from "@/components/service-worker-registration"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const jetbrainsMono = JetBrains_Mono({
@@ -48,13 +48,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Sagar Kundu", url: SITE_URL.href }],
   creator: "Sagar Kundu",
-  manifest: "/site.webmanifest",
  
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "black-translucent",
-    title: "Sagar Kundu Portfolio",
-  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -121,7 +115,7 @@ export default function RootLayout({
       <head>
         <meta name="theme-color" content="#00ff41" />
         <meta name="msapplication-TileColor" content="#0a0a0a" />
-        <meta name="msapplication-config" content="/browserconfig.xml" />
+        {/* <meta name="msapplication-config" content="/browserconfig.xml" /> */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* Preload hero and OG images to improve largest contentful paint and social preview load */}
@@ -142,11 +136,11 @@ export default function RootLayout({
             </div>
           </Suspense>
       <Analytics />
-      <PWAInstallPrompt />
+      {/* <PWAInstallPrompt /> */}
       {/* Component will now attempt to unregister any existing service workers
         rather than register a new one. This ensures previously-installed
         SWs don't interfere with site performance. */}
-      <ServiceWorkerRegistration />
+      {/* <ServiceWorkerRegistration /> */}
         </TerminalProvider>
       </body>
     </html>
