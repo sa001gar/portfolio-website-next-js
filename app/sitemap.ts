@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next"
 import { getAllProjects } from "@/lib/projects"
 import { getBlogPostsForSitemap } from "@/lib/sitemap-utils"
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://portfolio.sagarkundu.live"
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://sagarkundu.me"
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static pages

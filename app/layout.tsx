@@ -125,8 +125,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* Preload hero and OG images to improve largest contentful paint and social preview load */}
-        <link rel="preload" as="image" href="/sagarkundu_square.avif" type="image/avif" />
-        <link rel="preload" as="image" href="/og-image.png" type="image/png" />
+        <link rel="preload" as="image" href="https://sagarkundu.me/sagarkundu_square.avif" type="image/avif" />
+        <link rel="preload" as="image" href="https://sagarkundu.me/og-image.png" type="image/png" />
       </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans bg-terminal-black text-terminal-green`}>
         <TerminalProvider>
