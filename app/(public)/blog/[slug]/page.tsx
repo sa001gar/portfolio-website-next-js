@@ -1,98 +1,37 @@
-"use client"
-
-import { use,useEffect, useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
+import { createClient } from "@/lib/supabase/server"
 import { notFound } from "next/navigation"
+import Image from "next/image"
+import Link from "next/link"
 import { TerminalWindow } from "@/components/terminal-window"
 import { Badge } from "@/components/ui/badge"
-import { ContentfulRichText } from "@/components/contentful-rich-text"
 import { formatDate } from "@/lib/utils"
-import { getBlogPostBySlug, getAllBlogPosts, type BlogPost } from "@/lib/contentful"
-import { ArrowLeft, Calendar, User, Clock, Tag, Share2, BookOpen } from "lucide-react"
+import { ArrowLeft, Calendar, User, Clock, Tag, BookOpen } from "lucide-react"
+import { HighlightedContent } from "@/components/highlighted-content"
 
-interface BlogPostPageProps {
-  params: Promise<{ slug: string }>
-}
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const supabase = await createClient()
+  const { slug } = await params
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const [post, setPost] = useState<BlogPost | null>(null)
-  const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([])
-  const [loading, setLoading] = useState(true)
-  const [notFound404, setNotFound404] = useState(false)
-  const { slug } = use(params) 
+  const { data: post } = await supabase
+    .from("blogs")
+    .select("*")
+    .eq("slug", slug)
+    .single()
 
-  useEffect(() => {
-    // Scroll to top when component mounts
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-    loadPost()
-  }, [slug])
-
-  const loadPost = async () => {
-    try {
-      setLoading(true)
-      const blogPost = await getBlogPostBySlug(slug)
-
-      if (!blogPost) {
-        setNotFound404(true)
-        return
-      }
-
-      setPost(blogPost)
-
-      // Load related posts (posts with similar tags)
-      const allPosts = await getAllBlogPosts()
-      const related = allPosts
-        .filter((p) => p.id !== blogPost.id)
-        .filter((p) => p.tags.some((tag) => blogPost.tags.includes(tag)))
-        .slice(0, 3)
-
-      setRelatedPosts(related)
-    } catch (error) {
-      console.error("Error loading blog post:", error)
-      setNotFound404(true)
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  const handleShare = async () => {
-    if (navigator.share && post) {
-      try {
-        await navigator.share({
-          title: post.title,
-          text: post.excerpt,
-          url: window.location.href,
-        })
-      } catch (error) {
-        // Fallback to clipboard
-        navigator.clipboard.writeText(window.location.href)
-      }
-    } else {
-      // Fallback to clipboard
-      navigator.clipboard.writeText(window.location.href)
-    }
-  }
-
-  if (loading) {
-    return (
-      <div className="container mx-auto px-4 py-12 min-h-screen">
-        <div className="max-w-3xl mx-auto">
-          <TerminalWindow title="loading.md">
-            <div className="animate-pulse space-y-4">
-              <div className="h-4 bg-terminal-green/20 rounded w-3/4"></div>
-              <div className="h-4 bg-terminal-green/10 rounded w-full"></div>
-              <div className="h-4 bg-terminal-green/10 rounded w-2/3"></div>
-              <div className="h-32 bg-terminal-green/5 rounded"></div>
-            </div>
-          </TerminalWindow>
-        </div>
-      </div>
-    )
-  }
-
-  if (notFound404 || !post) {
+  if (!post) {
     notFound()
+  }
+
+  // Fetch related posts
+  let relatedPosts: any[] = []
+  if (post.tags && post.tags.length > 0) {
+      const { data: related } = await supabase
+        .from("blogs")
+        .select("id, title, slug, excerpt, publish_date, featured_image_url")
+        .neq("id", post.id)
+        .overlaps("tags", post.tags)
+        .limit(3)
+      relatedPosts = related || []
   }
 
   return (
@@ -121,7 +60,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-terminal-green/70 mb-4">
               <div className="flex items-center">
                 <Calendar className="w-4 h-4 mr-1" />
-                <span>{formatDate(post.publishDate)}</span>
+                <span>{formatDate(new Date(post.publish_date))}</span>
               </div>
               <div className="flex items-center">
                 <User className="w-4 h-4 mr-1" />
@@ -129,19 +68,12 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
               <div className="flex items-center">
                 <Clock className="w-4 h-4 mr-1" />
-                <span>{post.readTime}</span>
+                <span>{post.read_time}</span>
               </div>
-              <button
-                onClick={handleShare}
-                className="flex items-center text-terminal-green hover:text-terminal-bright transition-colors"
-              >
-                <Share2 className="w-4 h-4 mr-1" />
-                <span>Share</span>
-              </button>
             </div>
 
             <div className="flex flex-wrap gap-2 mb-6">
-              {post.tags.map((tag) => (
+              {post.tags?.map((tag: string) => (
                 <Badge key={tag} variant="secondary" className="text-xs">
                   <Tag className="w-3 h-3 mr-1" />
                   {tag}
@@ -150,11 +82,11 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
 
             {/* Featured Image */}
-            {post.featuredImage && (
+            {post.featured_image_url && (
               <div className="relative w-full h-64 md:h-80 rounded-md overflow-hidden border border-terminal-green/20 mb-6">
                 <Image
-                  src={post.featuredImage.url || "/placeholder.svg"}
-                  alt={post.featuredImage.alt}
+                  src={post.featured_image_url}
+                  alt={post.title}
                   fill
                   className="object-cover"
                   priority
@@ -165,7 +97,9 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
           {/* Article Content */}
           <TerminalWindow title={`${post.slug}.md`} className="mb-8">
-            <ContentfulRichText content={post.content} />
+            <div className="prose prose-invert prose-terminal max-w-none p-4">
+                <HighlightedContent content={post.content} />
+            </div>
           </TerminalWindow>
 
           {/* Author Bio */}
@@ -180,8 +114,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
             </div>
             <p className="text-terminal-green/80 text-sm">
-              {post.author} is a software engineer specializing in full-stack development, machine learning, and
-              cybersecurity. He shares his knowledge and experiences through articles and open-source contributions.
+              {post.author} shares knowledge and experiences through articles and open-source contributions.
             </p>
           </div>
 
@@ -197,11 +130,11 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                   <Link key={relatedPost.id} href={`/blog/${relatedPost.slug}`} className="block group">
                     <div className="border border-terminal-green/20 rounded-md p-4 hover:border-terminal-green/50 transition-all hover:bg-terminal-green/5">
                       <div className="flex gap-4">
-                        {relatedPost.featuredImage && (
+                        {relatedPost.featured_image_url && (
                           <div className="w-16 h-16 relative rounded overflow-hidden border border-terminal-green/20 flex-shrink-0">
                             <Image
-                              src={relatedPost.featuredImage.url || "/placeholder.svg"}
-                              alt={relatedPost.featuredImage.alt}
+                              src={relatedPost.featured_image_url}
+                              alt={relatedPost.title}
                               fill
                               className="object-cover"
                             />
@@ -214,7 +147,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                           <p className="text-terminal-green/70 text-sm line-clamp-2">{relatedPost.excerpt}</p>
                           <div className="flex items-center text-xs text-terminal-green/60 mt-2">
                             <Calendar className="w-3 h-3 mr-1" />
-                            <span>{formatDate(relatedPost.publishDate)}</span>
+                            <span>{formatDate(new Date(relatedPost.publish_date))}</span>
                           </div>
                         </div>
                       </div>

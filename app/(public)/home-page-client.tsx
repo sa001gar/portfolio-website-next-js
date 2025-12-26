@@ -17,11 +17,26 @@ import {
   Mail,
 } from "lucide-react";
 
-export default function Home() {
+interface HomePageClientProps {
+  profile: any;
+  skills: any[];
+  featuredProject: any;
+}
+
+export default function HomePageClient({ profile, skills, featuredProject }: HomePageClientProps) {
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
+
+  // Group skills by category
+  const groupedSkills = skills.reduce((acc: any, skill) => {
+    const category = skill.category || "Other"
+    if (!acc[category]) acc[category] = []
+    acc[category].push(skill.name)
+    return acc
+  }, {})
+
   return (
     <div className="container mx-auto px-4 py-12 min-h-screen">
       <div className="max-w-4xl mx-auto space-y-12">
@@ -31,14 +46,14 @@ export default function Home() {
             <div className="space-y-2">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-terminal-bright">
                 <TerminalText
-                  text="Sagar Kundu"
+                  text={profile?.full_name || "Sagar Kundu"}
                   typingDelay={80}
                   showCursor={false}
                 />
               </h1>
               <h2 className="text-xl md:text-2xl text-terminal-green">
                 <TerminalText
-                  text="Full Stack Developer & ML Expert"
+                  text={profile?.title || "Full Stack Developer"}
                   typingDelay={40}
                   showCursor={false}
                 />
@@ -46,9 +61,7 @@ export default function Home() {
             </div>
 
             <p className="text-terminal-green/80 max-w-2xl">
-              Software engineer with expertise in full stack development,
-              machine learning, and cybersecurity. Building robust and scalable
-              applications with modern technologies.
+              {profile?.bio || "Building robust and scalable applications with modern technologies."}
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -67,8 +80,8 @@ export default function Home() {
           <div className="flex justify-center md:justify-end">
             <div className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-terminal-green/30 shadow-glow">
               <Image
-                src="/sagarkundu_square.avif"
-                alt="Sagar Kundu"
+                src={profile?.avatar_url || "/sagarkundu_square.avif"}
+                alt={profile?.full_name || "Profile"}
                 fill
                 className="object-cover"
               />
@@ -83,16 +96,8 @@ export default function Home() {
               command="whoami"
               output={
                 <div className="space-y-2">
-                  <p>Software Engineer with expertise in:</p>
-                  <ul className="list-disc pl-4 sm:pl-5 space-y-1 text-sm sm:text-base">
-                    <li>
-                      Full Stack Web Development (Next.js, React, Django,
-                      Node.js)
-                    </li>
-                    <li>Machine Learning (scikit-learn, TensorFlow)</li>
-                    <li>DevOps & Cloud (AWS, Azure, Docker)</li>
-                    <li>Cybersecurity (Bug Bounty achievements)</li>
-                  </ul>
+                  <p>{profile?.title}</p>
+                  <p className="text-sm text-terminal-green/70">{profile?.location}</p>
                 </div>
               }
             />
@@ -101,68 +106,46 @@ export default function Home() {
               command="ls -la ./skills"
               output={
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-2">
-                  <div>
-                    <p className="text-terminal-bright font-medium mb-1">
-                      Frontend:
-                    </p>
-                    <ul className="text-xs sm:text-sm space-y-0.5">
-                      <li>React.js</li>
-                      <li>Next.js</li>
-                      <li>TypeScript</li>
-                      <li>Tailwind CSS</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <p className="text-terminal-bright font-medium mb-1">
-                      Backend:
-                    </p>
-                    <ul className="text-xs sm:text-sm space-y-0.5">
-                      <li>Node.js</li>
-                      <li>Django</li>
-                      <li>FastAPI</li>
-                      <li>Supabase</li>
-                    </ul>
-                  </div>
-                  <div className="sm:col-span-2 lg:col-span-1">
-                    <p className="text-terminal-bright font-medium mb-1">
-                      DevOps:
-                    </p>
-                    <ul className="text-xs sm:text-sm space-y-0.5">
-                      <li>Docker</li>
-                      <li>AWS/Azure</li>
-                      <li>CI/CD</li>
-                      <li>Vercel/Netlify</li>
-                    </ul>
-                  </div>
+                  {Object.entries(groupedSkills).map(([category, skillNames]: [string, any]) => (
+                    <div key={category}>
+                      <p className="text-terminal-bright font-medium mb-1">
+                        {category}:
+                      </p>
+                      <ul className="text-xs sm:text-sm space-y-0.5">
+                        {skillNames.map((name: string) => (
+                          <li key={name}>{name}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
                 </div>
               }
             />
 
-            <TerminalCommand
-              command="cat ./featured-project.md"
-              output={
-                <div className="space-y-2">
-                  <p className="text-terminal-bright font-bold text-sm sm:text-base">
-                    Electricity Theft Detection System using ML
-                  </p>
-                    <p className="text-xs sm:text-sm leading-relaxed">
-                    A machine learning tool designed to detect anomalies in the
-                    electricity grid and generate detailed reports. Built using
-                    Next.js, deep learning neural networks, TensorFlow, FastAPI,
-                    and robust data pipelines.
+            {featuredProject && (
+              <TerminalCommand
+                command="cat ./featured-project.md"
+                output={
+                  <div className="space-y-2">
+                    <p className="text-terminal-bright font-bold text-sm sm:text-base">
+                      {featuredProject.title}
                     </p>
-                  <p className="text-terminal-green/70 text-xs sm:text-sm">
-                    →{" "}
-                    <Link
-                      href="/project/electricity-theft-detection"
-                      className="underline hover:text-terminal-bright break-words"
-                    >
-                      View project details
-                    </Link>
-                  </p>
-                </div>
-              }
-            />
+                    <p className="text-xs sm:text-sm leading-relaxed max-w-xl">
+                      {featuredProject.description}
+                    </p>
+                    <p className="text-terminal-green/70 text-xs sm:text-sm">
+                      →{" "}
+                      <Link
+                        href={`/project/${featuredProject.slug}`}
+                        className="underline hover:text-terminal-bright break-words"
+                      >
+                        View project details
+                      </Link>
+                    </p>
+                  </div>
+                }
+              />
+            )}
 
             <CommandLine autoFocus />
           </TerminalWindow>

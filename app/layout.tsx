@@ -2,14 +2,11 @@ import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
-import { Sidebar } from "@/components/sidebar"
 import { TerminalProvider } from "@/components/terminal-provider"
 import { Analytics } from "@/components/analytics"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { PageLoader } from "@/components/page-loader"
 import { Suspense } from "react"
-// import { PWAInstallPrompt } from "@/components/pwa-install-prompt"
-// import { ServiceWorkerRegistration } from "@/components/service-worker-registration"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const jetbrainsMono = JetBrains_Mono({
@@ -20,7 +17,6 @@ const jetbrainsMono = JetBrains_Mono({
 
 const SITE_URL = new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://localhost:3000")
 
-// Viewport and Metadata settings
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
@@ -101,8 +97,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  // uncomment and fill verification tokens if needed:
-  // verification: { google: "...", yandex: "...", yahoo: "..." },
 }
 
 export default function RootLayout({
@@ -115,10 +109,8 @@ export default function RootLayout({
       <head>
         <meta name="theme-color" content="#00ff41" />
         <meta name="msapplication-TileColor" content="#0a0a0a" />
-        {/* <meta name="msapplication-config" content="/browserconfig.xml" /> */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Preload hero and OG images to improve largest contentful paint and social preview load */}
         <link rel="preload" as="image" href="https://sagarkundu.me/sagarkundu_square.avif" type="image/avif" />
         <link rel="preload" as="image" href="https://sagarkundu.me/og-image.png" type="image/png" />
       </head>
@@ -127,20 +119,9 @@ export default function RootLayout({
           <Suspense fallback={<div>Loading...</div>}>
             <PageLoader />
             <ScrollToTop />
-            <div className="flex flex-col md:flex-row min-h-screen">
-              <Sidebar />
-              <main className="flex-1 md:pl-[280px] min-h-screen">
-                {children}
-                <div className="fixed inset-0 pointer-events-none bg-terminal-glow opacity-20 z-[-1]"></div>
-              </main>
-            </div>
+            {children}
           </Suspense>
-      <Analytics />
-      {/* <PWAInstallPrompt /> */}
-      {/* Component will now attempt to unregister any existing service workers
-        rather than register a new one. This ensures previously-installed
-        SWs don't interfere with site performance. */}
-      {/* <ServiceWorkerRegistration /> */}
+          <Analytics />
         </TerminalProvider>
       </body>
     </html>
