@@ -47,33 +47,35 @@ export function ProjectCard({
       {/* Card Body */}
       <div className="p-4 flex flex-col flex-1 justify-between">
         <div>
-          {/* Title: exactly 2 lines reserved */}
+          {/* Title: exactly 2 lines reserved, aligned to top baseline */}
           <h3
-            className="text-lg font-bold font-mono text-terminal-bright mb-2 line-clamp-2 h-[3.25rem] min-h-[3.25rem] flex items-center leading-snug group-hover:text-terminal-green transition-colors"
+            className="text-lg font-bold font-mono text-terminal-bright mb-2.5 line-clamp-2 h-[3.25rem] min-h-[3.25rem] max-h-[3.25rem] leading-[1.625rem] group-hover:text-terminal-green transition-colors"
             title={title}
           >
             {title}
           </h3>
 
-          {/* Description: exactly 2 lines reserved */}
+          {/* Description: exactly 2 lines reserved, aligned to top baseline */}
           <p
-            className="text-terminal-green/80 text-sm mb-3 line-clamp-2 h-[2.75rem] min-h-[2.75rem] leading-relaxed"
+            className="text-terminal-green/80 text-sm mb-3.5 line-clamp-2 h-[2.75rem] min-h-[2.75rem] max-h-[2.75rem] leading-[1.375rem]"
             title={description}
           >
             {description}
           </p>
 
           {/* Chips / Tags: exactly 3 lines reserved */}
-          <div className="flex flex-wrap gap-1.5 h-[5rem] min-h-[5rem] max-h-[5rem] overflow-hidden content-start mb-4">
-            {tags.map((tag) => (
-              <Badge
-                key={tag}
-                variant="outline"
-                className="text-[11px] font-mono py-0.5 px-2 bg-terminal-green/5 border-terminal-green/25 text-terminal-green/90 hover:border-terminal-green/50 transition-colors"
-              >
-                {tag}
-              </Badge>
-            ))}
+          <div className="flex flex-wrap gap-1.5 h-[5.25rem] min-h-[5.25rem] max-h-[5.25rem] overflow-hidden content-start mb-4">
+            {tags && tags.length > 0 ? (
+              tags.map((tag) => (
+                <Badge
+                  key={tag}
+                  variant="outline"
+                  className="h-6 inline-flex items-center text-[11px] font-mono px-2.5 rounded-full bg-terminal-green/5 border-terminal-green/25 text-terminal-green/90 hover:border-terminal-green/50 hover:bg-terminal-green/10 transition-colors shrink-0"
+                >
+                  {tag}
+                </Badge>
+              ))
+            ) : null}
           </div>
         </div>
 
