@@ -17,6 +17,7 @@ import FontFamily from "@tiptap/extension-font-family"
 import { common, createLowlight } from "lowlight"
 import { useState, useRef } from "react"
 import { createClient } from "@/lib/supabase/client"
+import { processImageToWebP } from "@/lib/image-utils"
 import {
   Bold,
   Italic,
@@ -143,12 +144,19 @@ export function RichTextEditor({ content, onChange, placeholder }: RichTextEdito
 
     setIsUploading(true)
     try {
-      const fileExt = file.name.split(".").pop()
-      const fileName = `editor/${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExt}`
+      const optimizedWebP = await processImageToWebP(file, {
+        maxWidth: 1600,
+        maxHeight: 1600,
+        quality: 0.85,
+      })
+      const fileName = `editor/${Date.now()}-${Math.random().toString(36).substring(2)}.webp`
       
       const { error } = await supabase.storage
         .from("portfolio-assets")
-        .upload(fileName, file)
+        .upload(fileName, optimizedWebP, {
+          contentType: "image/webp",
+          upsert: true,
+        })
 
       if (error) throw error
 

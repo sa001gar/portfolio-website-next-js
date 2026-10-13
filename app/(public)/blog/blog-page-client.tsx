@@ -91,6 +91,7 @@ export default function BlogPageClient({ initialPosts, allTags }: BlogPageClient
                           src={post.featured_image_url}
                           alt={post.title}
                           fill
+                          sizes="(max-width: 768px) 100vw, 240px"
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>

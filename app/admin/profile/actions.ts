@@ -18,7 +18,7 @@ export async function updateProfile(formData: FormData) {
     phone: formData.get("phone") as string,
     location: formData.get("location") as string,
     working_hours: formData.get("working_hours") as string,
-    // social_links and avatar_url would be handled separately or via JSON parsing if passing raw JSON
+    avatar_url: (formData.get("avatar_url") as string) || null,
   }
 
   const { error } = await supabase.from("profiles").upsert({

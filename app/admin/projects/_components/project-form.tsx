@@ -8,6 +8,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { RichTextEditor } from "@/components/rich-text-editor"
 import { ImageUploader } from "@/components/image-uploader"
+import { AvatarUploader } from "@/components/avatar-uploader"
 
 interface ProjectFormProps {
   project?: any
@@ -182,18 +183,6 @@ export function ProjectForm({ project, isEdit = false }: ProjectFormProps) {
           <RichTextEditor content={content} onChange={setContent} placeholder="Write your project details..." />
         </div>
 
-        {/* Shoutout */}
-        <div className="border border-terminal-green/20 rounded-lg p-6 bg-terminal-black/50 space-y-2">
-             <label className="text-sm font-mono text-terminal-green/80 uppercase">Shoutout / Acknowledgement</label>
-             <textarea
-              name="shoutout"
-              defaultValue={project?.shoutout}
-              rows={2}
-              placeholder="Special thanks to..."
-              className="w-full bg-terminal-black border border-terminal-green/30 rounded px-3 py-2 text-terminal-green focus:outline-none focus:border-terminal-bright"
-            />
-        </div>
-
         {/* Contributors */}
         <div className="border border-terminal-green/20 rounded-lg p-6 bg-terminal-black/50 space-y-4">
             <div className="flex items-center justify-between">
@@ -209,7 +198,7 @@ export function ProjectForm({ project, isEdit = false }: ProjectFormProps) {
 
             <div className="space-y-4">
                 {contributors.map((contributor, index) => (
-                    <div key={index} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end border border-terminal-green/10 p-4 rounded text-sm relative">
+                    <div key={index} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-start border border-terminal-green/10 p-4 rounded text-sm relative">
                         <Button
                             type="button"
                             onClick={() => removeContributor(index)}
@@ -224,7 +213,7 @@ export function ProjectForm({ project, isEdit = false }: ProjectFormProps) {
                             <input
                                 value={contributor.name}
                                 onChange={(e) => handleContributorChange(index, "name", e.target.value)}
-                                className="w-full bg-terminal-black border border-terminal-green/30 rounded px-2 py-1"
+                                className="w-full bg-terminal-black border border-terminal-green/30 rounded px-2 py-1 text-terminal-green focus:outline-none focus:border-terminal-bright"
                                 placeholder="John Doe"
                             />
                         </div>
@@ -233,17 +222,17 @@ export function ProjectForm({ project, isEdit = false }: ProjectFormProps) {
                             <input
                                 value={contributor.role}
                                 onChange={(e) => handleContributorChange(index, "role", e.target.value)}
-                                className="w-full bg-terminal-black border border-terminal-green/30 rounded px-2 py-1"
+                                className="w-full bg-terminal-black border border-terminal-green/30 rounded px-2 py-1 text-terminal-green focus:outline-none focus:border-terminal-bright"
                                 placeholder="Designer"
                             />
                         </div>
                         <div className="space-y-1">
-                            <span className="text-xs font-mono text-terminal-green/70">Avatar URL</span>
-                            <input
-                                value={contributor.avatar_url}
-                                onChange={(e) => handleContributorChange(index, "avatar_url", e.target.value)}
-                                className="w-full bg-terminal-black border border-terminal-green/30 rounded px-2 py-1"
-                                placeholder="https://..."
+                            <AvatarUploader
+                              label="Avatar"
+                              value={contributor.avatar_url}
+                              onChange={(url) => handleContributorChange(index, "avatar_url", url)}
+                              folder="contributors"
+                              placeholderText="Upload avatar"
                             />
                         </div>
                          <div className="space-y-1">
@@ -251,7 +240,7 @@ export function ProjectForm({ project, isEdit = false }: ProjectFormProps) {
                             <input
                                 value={contributor.url}
                                 onChange={(e) => handleContributorChange(index, "url", e.target.value)}
-                                className="w-full bg-terminal-black border border-terminal-green/30 rounded px-2 py-1"
+                                className="w-full bg-terminal-black border border-terminal-green/30 rounded px-2 py-1 text-terminal-green focus:outline-none focus:border-terminal-bright"
                                 placeholder="https://..."
                             />
                         </div>

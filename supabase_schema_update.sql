@@ -1,6 +1,6 @@
 -- Add new columns to projects
 alter table public.projects add column if not exists contributors jsonb default '[]'::jsonb; -- Array of {name, role, url, avatar_url}
-alter table public.projects add column if not exists shoutout text;
+alter table public.projects drop column if exists shoutout;
 
 -- Create CERTIFICATIONS table
 create table if not exists public.certifications (
@@ -18,12 +18,14 @@ create table if not exists public.certifications (
 alter table public.certifications enable row level security;
 
 -- Policies for certifications
+drop policy if exists "Certifications are viewable by everyone." on public.certifications;
 create policy "Certifications are viewable by everyone."
-  on certifications for select
+  on public.certifications for select
   using ( true );
 
+drop policy if exists "Authenticated users can manage certifications." on public.certifications;
 create policy "Authenticated users can manage certifications."
-  on certifications for all
+  on public.certifications for all
   using ( auth.role() = 'authenticated' );
 
 -- Add courses to education if not exists (to match mock data fidelity)

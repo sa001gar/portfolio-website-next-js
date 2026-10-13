@@ -24,7 +24,7 @@ export default function AboutPage() {
           <div className="md:col-span-1">
             <div className="sticky top-24">
               <div className="relative w-full aspect-square max-w-[300px] mx-auto mb-6 rounded-md overflow-hidden border border-terminal-green/30 shadow-glow">
-                <Image src="/sagarkundu_square.avif" alt="Sagar Kundu" fill className="object-cover" />
+                <Image src="/sagarkundu_square.avif" alt="Sagar Kundu" fill sizes="(max-width: 768px) 100vw, 300px" className="object-cover" />
               </div>
 
               <div className="space-y-4">

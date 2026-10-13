@@ -83,6 +83,7 @@ export default function HomePageClient({ profile, skills, featuredProject }: Hom
                 src={profile?.avatar_url || "/sagarkundu_square.avif"}
                 alt={profile?.full_name || "Profile"}
                 fill
+                sizes="192px"
                 className="object-cover"
               />
             </div>

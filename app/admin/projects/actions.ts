@@ -15,9 +15,6 @@ export async function createProject(formData: FormData) {
   const tags = (formData.get("tags") as string).split(",").map((tag) => tag.trim()).filter((tag) => tag.length > 0)
   const featured = formData.get("featured") === "on"
   
-  // New fields
-  const shoutout = formData.get("shoutout") as string
-  
   // Parse JSON fields safely
   let contributors = []
   try {
@@ -55,7 +52,6 @@ export async function createProject(formData: FormData) {
     content,
     tags,
     featured,
-    shoutout,
     contributors,
     images,
     github_url,
@@ -82,9 +78,6 @@ export async function updateProject(id: string, formData: FormData) {
   const content = formData.get("content") as string
   const tags = (formData.get("tags") as string).split(",").map((tag) => tag.trim()).filter((tag) => tag.length > 0)
   const featured = formData.get("featured") === "on"
-  
-  // New fields
-  const shoutout = formData.get("shoutout") as string
   
   // Parse JSON fields safely
   let contributors = []
@@ -120,7 +113,6 @@ export async function updateProject(id: string, formData: FormData) {
     content,
     tags,
     featured,
-    shoutout,
     contributors,
     images,
     github_url,
