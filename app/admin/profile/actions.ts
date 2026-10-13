@@ -35,20 +35,75 @@ export async function updateProfile(formData: FormData) {
 // --- Experience ---
 export async function addExperience(formData: FormData) {
   const supabase = await createClient()
+
+  const technologiesRaw = formData.get("technologies") as string
+  const achievementsRaw = formData.get("achievements") as string
+
+  const technologies = technologiesRaw
+    ? technologiesRaw.split(",").map((s) => s.trim()).filter(Boolean)
+    : []
+
+  const achievements = achievementsRaw
+    ? achievementsRaw.split("\n").map((s) => s.trim()).filter(Boolean)
+    : []
+
+  const orderIndexRaw = formData.get("order_index")
+  const order_index = orderIndexRaw ? parseInt(orderIndexRaw as string, 10) || 0 : 0
   
-  const data = {
+  const data: any = {
     title: formData.get("title") as string,
     company: formData.get("company") as string,
-    location: formData.get("location") as string,
+    location: (formData.get("location") as string) || null,
     start_date: formData.get("start_date") as string,
-    end_date: (formData.get("current") === "on") ? null : formData.get("end_date") as string,
-    current: formData.get("current") === "on",
-    description: formData.get("description") as string,
+    end_date: (formData.get("current") === "on" || formData.get("current") === "true") ? null : ((formData.get("end_date") as string) || null),
+    current: formData.get("current") === "on" || formData.get("current") === "true",
+    description: (formData.get("description") as string) || null,
+    technologies,
+    achievements,
+    order_index,
   }
 
   const { error } = await supabase.from("experience").insert(data)
   if (error) return { error: error.message }
   revalidatePath("/admin/profile")
+  revalidatePath("/experience")
+  return { success: true }
+}
+
+export async function updateExperience(id: string, formData: FormData) {
+  const supabase = await createClient()
+
+  const technologiesRaw = formData.get("technologies") as string
+  const achievementsRaw = formData.get("achievements") as string
+
+  const technologies = technologiesRaw
+    ? technologiesRaw.split(",").map((s) => s.trim()).filter(Boolean)
+    : []
+
+  const achievements = achievementsRaw
+    ? achievementsRaw.split("\n").map((s) => s.trim()).filter(Boolean)
+    : []
+
+  const orderIndexRaw = formData.get("order_index")
+  const order_index = orderIndexRaw !== null && orderIndexRaw !== "" ? parseInt(orderIndexRaw as string, 10) || 0 : 0
+
+  const data: any = {
+    title: formData.get("title") as string,
+    company: formData.get("company") as string,
+    location: (formData.get("location") as string) || null,
+    start_date: formData.get("start_date") as string,
+    end_date: (formData.get("current") === "on" || formData.get("current") === "true") ? null : ((formData.get("end_date") as string) || null),
+    current: formData.get("current") === "on" || formData.get("current") === "true",
+    description: (formData.get("description") as string) || null,
+    technologies,
+    achievements,
+    order_index,
+  }
+
+  const { error } = await supabase.from("experience").update(data).eq("id", id)
+  if (error) return { error: error.message }
+  revalidatePath("/admin/profile")
+  revalidatePath("/experience")
   return { success: true }
 }
 
@@ -57,6 +112,7 @@ export async function deleteExperience(id: string) {
   const { error } = await supabase.from("experience").delete().eq("id", id)
   if (error) return { error: error.message }
   revalidatePath("/admin/profile")
+  revalidatePath("/experience")
   return { success: true }
 }
 

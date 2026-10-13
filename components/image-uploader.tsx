@@ -5,7 +5,7 @@ import { createClient } from "@/lib/supabase/client"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Upload, X, Image as ImageIcon, Loader2, Crop, Sparkles } from "lucide-react"
+import { Upload, X, Image as ImageIcon, Loader2, Crop, WandSparkles } from "lucide-react"
 import Image from "next/image"
 import { processImageToWebP } from "@/lib/image-utils"
 import { ImageCropperModal } from "@/components/image-cropper-modal"
@@ -238,7 +238,7 @@ export function ImageUploader({
             </div>
           )}
           <div className="flex items-center gap-1.5 text-[11px] font-mono text-terminal-green/50">
-            <Sparkles className="w-3 h-3 text-terminal-green/60" />
+            <WandSparkles className="w-3 h-3 text-terminal-green/60" />
             <span>Auto-scales to max {maxWidth}px & encodes to optimized WebP format</span>
           </div>
         </div>

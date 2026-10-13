@@ -4,6 +4,30 @@ import { TerminalText } from "@/components/terminal-text"
 import { Badge } from "@/components/ui/badge"
 import { Briefcase, Award, GraduationCap, Code } from "lucide-react"
 
+function formatDisplayDate(dateStr: string | null | undefined): string {
+  if (!dateStr) return ""
+  try {
+    if (/^[A-Za-z]{3}\s+\d{4}$/.test(dateStr.trim())) {
+      return dateStr.trim()
+    }
+    const parts = dateStr.split("-")
+    if (parts.length >= 2) {
+      const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+      const mIdx = parseInt(parts[1], 10) - 1
+      if (mIdx >= 0 && mIdx < 12) {
+        return `${monthNames[mIdx]} ${parts[0]}`
+      }
+    }
+    const date = new Date(dateStr)
+    if (!isNaN(date.getTime())) {
+      return date.toLocaleDateString("en-US", { month: "short", year: "numeric" })
+    }
+    return dateStr
+  } catch {
+    return dateStr || ""
+  }
+}
+
 export default async function ExperiencePage() {
   const supabase = await createClient()
 
@@ -65,11 +89,18 @@ export default async function ExperiencePage() {
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
                   <div>
                     <h3 className="text-xl font-bold text-terminal-bright">{exp.title}</h3>
-                    <p className="text-terminal-green">{exp.company}</p>
+                    <p className="text-terminal-green">
+                      {exp.company}
+                      {exp.location && (
+                        <span className="text-terminal-green/60 text-sm ml-2">
+                          • {exp.location}
+                        </span>
+                      )}
+                    </p>
                   </div>
                   <div className="mt-2 sm:mt-0">
-                    <Badge variant="outline" className="bg-terminal-green/5 uppercase">
-                      {exp.start_date} - {exp.current ? "Present" : exp.end_date}
+                    <Badge variant="outline" className="bg-terminal-green/5 uppercase font-mono text-xs">
+                      {formatDisplayDate(exp.start_date)} - {exp.current ? "Present" : formatDisplayDate(exp.end_date)}
                     </Badge>
                   </div>
                 </div>
