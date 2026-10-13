@@ -1,0 +1,188 @@
+[
+  {
+    "title": "DocOS - AI-assisted Document Workspace",
+    "slug": "docos-ai-assisted-document-workspace",
+    "description": "Developed an AI-assisted document workspace that organizes documents into independently editable sections, with generation, validation, revision history, and export workflows.",
+    "content": "An AI-assisted document workspace that organizes documents into independently editable sections, with automated generation, validation, revision history, and export workflows.\n\n### Key Highlights\n- **Hierarchical Document Model**: Designed a structured model supporting section-level editing, granular regeneration, and hierarchical tree navigation.\n- **Specialized AI Workflows**: Integrated specialized multi-stage AI workflows for planning, writing, refining, validating, and reviewing documents.\n- **Version History & Diffs**: Implemented section-level version history with real-time change comparison and instant rollback/restoration.\n- **Modern Full-Stack Stack**: Combined a high-performance React/TypeScript frontend with a FastAPI backend and relational PostgreSQL database.\n- **Flexible Inference Engine**: Added support for both hosted and local Gemma-compatible inference providers alongside multi-format document export workflows.",
+    "tags": [
+      "AI",
+      "FastAPI",
+      "React",
+      "TypeScript",
+      "Document Processing",
+      "PostgreSQL",
+      "LLM"
+    ],
+    "featured": true,
+    "github_url": "https://github.com/sa001gar/document-os",
+    "live_url": null,
+    "contributors": [
+      {
+        "name": "Shreya Ray",
+        "role": "Contributor"
+      },
+      {
+        "name": "Biswajit",
+        "role": "Contributor"
+      },
+      {
+        "name": "Soumitra Konar",
+        "role": "Contributor"
+      }
+    ]
+  },
+  {
+    "title": "GopherQueue - Durable Job Queue in Go",
+    "slug": "gopherqueue-durable-job-queue-in-go",
+    "description": "Built an open-source, persistent background job engine in Go, designed to make asynchronous task processing reliable without requiring an external message broker.",
+    "content": "A local-first, enterprise-grade background job engine written in Go. Built for reliability and performance with BoltDB-backed persistence, zero external runtime dependencies, and native SDKs.\n\n### Key Highlights\n- **Durable Storage Engine**: Implemented durable embedded job storage using BoltDB to preserve queued tasks across process restarts and server crashes without needing Redis or RabbitMQ.\n- **Scheduling & Retries**: Designed priority-based scheduling, exponential retries with configurable backoff, and end-to-end task lifecycle state management.\n- **Resilient Execution**: Added task dependencies, idempotency keys, deduplication windows, and dead-letter queues (DLQ) for mission-critical jobs.\n- **Production Observability**: Built-in Prometheus metrics exporter, structured JSON logging, and live health check probes.\n- **Multi-Language Client SDKs**: Developed native Python and TypeScript client libraries alongside a lightweight CLI and HTTP management API.",
+    "tags": [
+      "Go",
+      "Job Queues",
+      "BoltDB",
+      "Distributed Systems",
+      "TypeScript",
+      "Python",
+      "Open Source"
+    ],
+    "featured": true,
+    "github_url": "https://github.com/sa001gar/gopherqueue",
+    "live_url": null,
+    "contributors": []
+  },
+  {
+    "title": "Kookie - Encrypted Developer Secrets Manager",
+    "slug": "kookie-encrypted-developer-secrets-manager",
+    "description": "Developed a local-first command-line secrets manager in Rust that helps developers securely manage credentials without depending on a cloud vault.",
+    "content": "A secure, local-first, encrypted secret manager for developers built in Rust to protect passwords, keys, and tokens offline without third-party cloud trust.\n\n### Key Highlights\n- **Zero-Knowledge Encryption**: Built on AES-256-GCM authenticated encryption paired with Argon2id memory-hard key derivation to prevent brute-force attacks.\n- **Versatile Secret Store**: Seamlessly stores and organizes API keys, database connection strings, JWT signing keys, passwords, and private development notes.\n- **Security-First UX**: Implemented automatic vault locking, customizable session idle timeouts, and clipboard auto-clearing.\n- **Built-in Developer Utilities**: Instant generation of cryptographically secure random passwords, hex keys, and high-entropy JWT secrets.\n- **Cross-Platform Compatibility**: Ships as a single self-contained binary across Linux, macOS, Windows, and Termux environments.",
+    "tags": [
+      "Rust",
+      "Cryptography",
+      "CLI",
+      "Security",
+      "Argon2",
+      "AES-256",
+      "Open Source"
+    ],
+    "featured": true,
+    "github_url": "https://github.com/sa001gar/kookie-cli",
+    "live_url": null,
+    "contributors": []
+  },
+  {
+    "title": "Medical Prescription OCR",
+    "slug": "medical-prescription-ocr",
+    "description": "Built an ML-powered prescription digitization pipeline that extracts medicine names, dosage information, and frequency instructions from handwritten prescription images.",
+    "content": "An end-to-end machine learning computer vision pipeline designed to digitize handwritten medical prescriptions into structured, machine-readable records.\n\n### Key Highlights\n- **Deep Learning Recognition**: Integrated Microsoft TrOCR (Transformer-based Optical Character Recognition) fine-tuned for handwritten doctor prescriptions.\n- **Computer Vision Preprocessing**: Implemented adaptive thresholding, deskewing, denoising, morphological operations, and line segmentation to maximize OCR accuracy.\n- **Entity Extraction & Matching**: Automated extraction of drug dosage, frequency, and duration with fuzzy matching against standard pharmaceutical drug databases.\n- **Confidence Scoring & Flagging**: Designed an uncertainty scoring algorithm to flag ambiguous handwriting for manual human pharmacist review.\n- **Service Architecture**: Packaged as a high-performance RESTful API service using FastAPI, complete with interactive OpenAPI documentation and Docker containerization.",
+    "tags": [
+      "Machine Learning",
+      "Computer Vision",
+      "TrOCR",
+      "FastAPI",
+      "Python",
+      "Healthcare",
+      "PyTorch"
+    ],
+    "featured": true,
+    "github_url": "https://github.com/sa001gar",
+    "live_url": null,
+    "contributors": [
+      {
+        "name": "Mainak",
+        "role": "Contributor"
+      }
+    ]
+  },
+  {
+    "title": "MCCS Quiz Platform - Mankar College",
+    "slug": "mccs-quiz-platform-mankar-college",
+    "description": "Developed an online quiz platform for the Department of Computer Science at Mankar College to support its recurring annual online quiz events.",
+    "content": "An interactive web assessment platform built for the Department of Computer Science at Mankar College to manage, host, and score annual competitive quizzes and departmental examinations.\n\n### Key Highlights\n- **Institutional Scale**: Designed specifically to handle concurrent student submissions during live timed departmental quiz events with low latency.\n- **Modern Full-Stack Architecture**: Built with Next.js App Router, Tailwind CSS, and a real-time Supabase PostgreSQL backend.\n- **Exam Integrity**: Automated timer synchronization, single-submission guarantees, question shuffling, and real-time anti-cheating state tracking.\n- **Administrative Portal**: Built-in quiz creator with instant CSV export, automated scoring, and real-time leaderboard generation.\n- **Practical Impact**: Deployed and utilized in real academic competitions for hundreds of participating students.",
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Supabase",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Education"
+    ],
+    "featured": false,
+    "github_url": "https://github.com/sa001gar/quiz_mccs",
+    "live_url": null,
+    "contributors": [
+      {
+        "name": "Mainak",
+        "role": "Contributor"
+      }
+    ]
+  },
+  {
+    "title": "Serverless Visitor Count API - Global",
+    "slug": "serverless-visitor-count-api-global",
+    "description": "Built a reusable serverless visitor analytics API for tracking total visits, unique visitors, and visit timestamps across multiple web applications.",
+    "content": "A high-throughput, edge-deployed visitor analytics service designed to track real-time total and unique page views across distributed websites with zero cold-start delay.\n\n### Key Highlights\n- **Edge Deployment**: Built using Cloudflare Workers, serving requests at edge datacenters with sub-10ms response times globally.\n- **In-Memory Speed**: Backed by Upstash Serverless Redis for atomic counters, IP-based deduplication, and daily time-series metrics.\n- **Multi-Tenant Architecture**: Supports tracking multiple web applications and blogs using custom application identifiers and namespaced keys.\n- **Cross-Origin Support**: Fully configured CORS preflight handling and rate limiting to permit seamless integration from any frontend domain.\n- **Lightweight Embeds**: Designed to be invoked via simple SVG badge or JSON fetch in one line of JavaScript.",
+    "tags": [
+      "Cloudflare Workers",
+      "Redis",
+      "Serverless",
+      "TypeScript",
+      "Edge Computing",
+      "APIs"
+    ],
+    "featured": false,
+    "github_url": "https://github.com/sa001gar/visitor-count",
+    "live_url": "https://rkavpanagarh.in",
+    "contributors": []
+  },
+  {
+    "title": "Modern Electricity Theft Detection System",
+    "slug": "modern-electricity-theft-detection-system",
+    "description": "Co-developed an ML and IoT-based electricity theft detection system that combines electrical measurements, machine-learning analysis, and a backend service.",
+    "content": "An Internet-of-Things (IoT) and machine-learning solution to combat energy loss by identifying power line tapping and meter tampering in real time.\n\n### Key Highlights\n- **Hardware Sensing Layer**: Utilized ESP32 microcontrollers paired with precision non-invasive CT current sensors and AC voltage sensors to gather continuous power telemetry.\n- **Machine Learning Analysis**: Trained classification algorithms on historical consumption profiles to accurately detect line power imbalances and anomalous usage.\n- **Backend Data Pipeline**: Real-time telemetry ingestion pipeline that processes raw readings, computes phase differences, and flags suspicious power draw.\n- **Operator Dashboard**: Interactive web interface displaying live grid statistics, phase current comparisons, and automated alert dispatching for field inspection.\n- **Multidisciplinary Engineering**: Spanned embedded firmware, IoT communication protocols, predictive analytics, and cloud infrastructure.",
+    "tags": [
+      "IoT",
+      "Machine Learning",
+      "ESP32",
+      "Python",
+      "FastAPI",
+      "Sensors",
+      "Energy"
+    ],
+    "featured": false,
+    "github_url": "https://github.com/sa001gar/Smart-Electricity-Theft-Detection",
+    "live_url": null,
+    "contributors": [
+      {
+        "name": "Koyel",
+        "role": "Contributor"
+      },
+      {
+        "name": "Mainak",
+        "role": "Contributor"
+      }
+    ]
+  },
+  {
+    "title": "Stress Detection Using Smartwatch Data",
+    "slug": "stress-detection-using-smartwatch-data",
+    "description": "Developed a machine-learning project exploring stress detection from smartwatch-derived physiological and activity data.",
+    "content": "A data science and machine learning research project focused on non-invasive human mental stress identification using multi-modal physiological sensor streams collected from consumer wearables.\n\n### Key Highlights\n- **Sensor Modalities**: Analyzed wearable time-series datasets featuring Photoplethysmography (PPG) heart rate, Heart Rate Variability (HRV), Galvanic Skin Response (GSR), skin temperature, and 3-axis accelerometer movement.\n- **Signal Processing & Feature Extraction**: Extracted statistical time-domain and frequency-domain biometric indicators (RMSSD, SDNN, spectral power) to identify autonomic nervous system stress reactions.\n- **Classification Models**: Compared tree-based classifiers (Random Forest, XGBoost) and neural architectures for continuous stress vs. baseline state classification.\n- **Preventative Health Potential**: Investigated the viability of deploying lightweight quantized models directly on edge devices for real-time wellness intervention prompts.",
+    "tags": [
+      "Machine Learning",
+      "Data Analysis",
+      "Python",
+      "Wearables",
+      "Healthcare",
+      "Signal Processing"
+    ],
+    "featured": false,
+    "github_url": "https://github.com/sa001gar/Stress-Detection-Using-Smartwatch-Data",
+    "live_url": null,
+    "contributors": [
+      {
+        "name": "Mainak",
+        "role": "Contributor"
+      }
+    ]
+  }
+]
